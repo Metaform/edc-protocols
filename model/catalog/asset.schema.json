@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/eclipse-dataspaceconnector.com/asset.schema.json",
+  "title": "Asset",
+  "description": "A data asset",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The unique identifier for the asset",
+      "type": "string"
+    },
+    "contentType": {
+      "type": "string"
+    },
+    "properties": {
+      "$ref": "definitions.schema.json#/definitions/extensibleMap"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "definitions": {
+    "extensibleMap": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object"
+      },
+      "description": "Defines a map data structure for storing extensible properties"
+    }
+  }
+}

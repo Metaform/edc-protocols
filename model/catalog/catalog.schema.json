@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/eclipse-dataspaceconnector.com/catalog.schema.json",
+  "title": "Catalog",
+  "description": "A catalog",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "The unique identifier for the catalog",
+      "type": "string"
+    },
+    "contractOffers": {
+      "type": "array",
+      "items": {
+        "$ref": "../contract/contract-offer.schema.json"
+      }
+    }
+  }
+}

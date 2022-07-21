@@ -13,7 +13,7 @@
       "type": "string"
     },
     "properties": {
-      "$ref": "definitions.schema.json#/definitions/extensibleMap"
+      "$ref": "../common/definitions.schema.json#/definitions/extensibleMap"
     }
   }
 }

@@ -13,7 +13,7 @@
       "$ref": "https://www.w3.org/ns/odrl.jsonld#Set"
     },
     "asset": {
-      "$ref": "./asset.schema.json"
+      "$ref": "../asset/asset.schema.json"
     },
     "provider": {
       "type": "string",
@@ -37,7 +37,7 @@
         "null"
       ],
       "format": "date-time",
-      "description": "The offer expiration time expressed as milliseconds since the Unix epoch"
+      "description": "The offer expiration time expressed as ISO 8601 date time."
     },
     "contractStart": {
       "type": [
@@ -45,7 +45,7 @@
         "null"
       ],
       "format": "date-time",
-      "description": "The contract start time expressed as milliseconds since the Unix epoch"
+      "description": "The contract start time expressed as an ISO 8601 date time."
     },
     "contractEnd": {
       "type": [
@@ -53,7 +53,7 @@
         "null"
       ],
       "format": "date-time",
-      "description": "The contract expiration time expressed as milliseconds since the Unix epoch"
+      "description": "The contract expiration time expressed as an ISO 8601 date time."
     },
     "contractDuration": {
       "type": [
@@ -64,7 +64,7 @@
       "description": "The contract duration time expressed as an ISO 8601 duration. The contract end date takes precedence. If no duration and no end date are specified, "
     },
     "properties": {
-      "$ref": "definitions.schema.json#/definitions/extensibleMap"
+      "$ref": "../common/definitions.schema.json#/definitions/extensibleMap"
     }
   }
 }

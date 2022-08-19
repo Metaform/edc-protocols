@@ -17,3 +17,7 @@
 
 - [IDS InfoModel](https://international-data-spaces-association.github.io/InformationModel/docs/index.html)
 - [IDS GitHub InfoModel](https://github.com/International-Data-Spaces-Association/InformationModel)
+ 
+## RFCs
+
+- [Web Linking](https://datatracker.ietf.org/doc/html/rfc5988)

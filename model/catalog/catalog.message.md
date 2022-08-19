@@ -2,12 +2,13 @@
 
 ```
 GET https://provider.com/catalog
+
+Authorization: ...
 ```
 
 First page response:
 ```
 Link: <https://provider.com/catalog?page=2&per_page=100>; rel="next"
-
 {
    "@type": "dcat:Catalog"
    ...

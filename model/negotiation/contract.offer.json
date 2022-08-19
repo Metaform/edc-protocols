@@ -1,0 +1,12 @@
+{
+  "@context": {
+    "edc": "XXXXXXX",
+    "odrl": "https://www.w3.org/TR/odrl-model"
+  },
+  "@type": "edc:ContractOffer",
+  "correlationId": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
+  "offer": {
+    "@type": "odrl:Offer",
+    "uid": "..."
+  }
+}

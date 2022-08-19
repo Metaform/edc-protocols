@@ -1,0 +1,6 @@
+- **ContractRequest** - Sent by the consumer.
+- **ContractOffer** - Sent by the consumer or provider.
+- **ContractOfferAccept** - Sent by the consumer.
+- **ContractAgreement** - Sent by the provider.
+- **ContractAgreementAccept** - Sent by the consumer.
+- **ContractReject** - Sent by the consumer or provider.

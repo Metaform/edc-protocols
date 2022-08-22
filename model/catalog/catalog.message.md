@@ -8,7 +8,7 @@
 - Pagination specified using [Web Linking](https://datatracker.ietf.org/doc/html/rfc5988).
 - Authorization via OAUTH2, Web DIDs, or another mechanism.
 - There is no need to specify a query language. Since all message types are DCAT serialized as JSON, any query language that can consume the serialization will work. 
-- Replication can be handled via issuing GET requests, altough in most cases replication is not needed. 
+- Replication can be handled via issuing GET requests, although in most cases replication is not needed. 
 
 ## Message Examples
 

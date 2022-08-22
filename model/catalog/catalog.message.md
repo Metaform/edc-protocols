@@ -2,7 +2,7 @@
 
 ## Key Points
 
-- The API is RESTFul HTTP.
+- The API is RESTFul HTTPS.
 - Each dataspace participant will host a catalog agent (or will delegate to a third-party).
 - Versioning will be done via URLs
 - Pagination specified using [Web Linking](https://datatracker.ietf.org/doc/html/rfc5988).

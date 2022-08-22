@@ -21,3 +21,6 @@
 ## RFCs
 
 - [Web Linking](https://datatracker.ietf.org/doc/html/rfc5988)
+- [JSON Web Signature (JWS)](https://www.rfc-editor.org/rfc/rfc7515) 
+- [JWK Thumbprint](https://www.rfc-editor.org/rfc/rfc7638#section-3) 
+- [JCS](https://www.rfc-editor.org/rfc/rfc8785) 

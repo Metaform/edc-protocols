@@ -2,6 +2,8 @@
 
 ## Key Points
 
+- The API is RESTFul HTTP.
+- Each dataspace participant will host a catalog agent (or will delegate to a third-party).
 - Versioning will be done via URLs
 - Pagination specified using [Web Linking](https://datatracker.ietf.org/doc/html/rfc5988).
 - Authorization via OAUTH2, Web DIDs, or another mechanism.
@@ -10,7 +12,9 @@
 
 ## Message Examples
 
-### GET Catalog with pagination
+### 1. GET Catalog with pagination
+
+Request: 
 
 ```
 GET https://provider.com/catalog

@@ -4,7 +4,7 @@
 
 - The API is RESTFul HTTPS.
 - Each dataspace participant will host a catalog agent (or will delegate to a third-party).
-- Versioning will be done via URLs
+- Versioning will be done via URLs.
 - Pagination specified using [Web Linking](https://datatracker.ietf.org/doc/html/rfc5988).
 - Authorization via OAUTH2, Web DIDs, or another mechanism.
 - There is no need to specify a query language. Since all message types are DCAT serialized as JSON, any query language that can consume the serialization will work. 

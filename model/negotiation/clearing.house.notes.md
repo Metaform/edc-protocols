@@ -3,7 +3,7 @@
 - [JCS Signing](https://connect2id.com/blog/how-to-secure-json-objects-with-hmac)
 - [JWS Signing](https://connect2id.com/products/nimbus-jose-jwt/examples/jws-with-rsa-signature)
 - [JOSE JWS](https://cyberphone.github.io/doc/security/jose-jcs.html) 
-- [JWS/CT](http://www.watersprings.org/pub/id/draft-jordan-jws-ct-05.html) 
+- [JWS/CT](https://www.ietf.org/archive/id/draft-jordan-jws-ct-08.html) 
 
 # Approach
 ## JWS Clear Text JSON Signature Option 

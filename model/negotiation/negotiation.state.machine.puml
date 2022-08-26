@@ -1,0 +1,44 @@
+@startuml "hub-request-processing"
+!pragma layout smetana
+
+!include ../../diagrams/diagram.styles.puml
+
+hide empty description
+
+state REQUESTED: <color:$darkGray>ContractRequestMessage
+state PROVIDER_OFFERED: <color:$darkGray>ContractOfferMessage
+state CONSUMER_OFFERED: <color:$darkGray>ContractOfferMessage
+state CONSUMER_ACCEPTED: <color:$darkGray>ContractOfferAcceptMessage
+state PROVIDER_AGREED: <color:$darkGray>ContractAgreementMessage
+state CONSUMER_VERIFIED: <color:$darkGray>ContractAgreementVerificationMessage
+state PROVIDER_FINALIZED: <color:$darkGray>ContractAgreementFinalizeMessage
+state DECLINED:  <color:$darkGray>ContractOfferDeclineMessage
+
+state ERROR $lightRed #$borderRed : <color:$darkGray>ErrorMessage
+state ABANDONED $lightRed #$borderRed:  <color:$darkGray>AbandonMessage
+
+[*] --> REQUESTED: C
+REQUESTED -->  PROVIDER_OFFERED: P
+REQUESTED -->  DECLINED: P
+
+PROVIDER_OFFERED -->  CONSUMER_OFFERED: C
+PROVIDER_OFFERED -->  CONSUMER_ACCEPTED: C
+PROVIDER_OFFERED -->  DECLINED: C
+
+CONSUMER_OFFERED -->  PROVIDER_OFFERED: P
+CONSUMER_OFFERED -->  DECLINED: P
+CONSUMER_OFFERED -->  PROVIDER_AGREED: P
+
+CONSUMER_ACCEPTED --> PROVIDER_AGREED: P
+CONSUMER_ACCEPTED --> DECLINED: P
+
+PROVIDER_AGREED --> CONSUMER_VERIFIED: C
+
+CONSUMER_VERIFIED --> PROVIDER_FINALIZED: P
+
+PROVIDER_FINALIZED -->[*]
+ERROR --> [*]
+ABANDONED --> [*]
+DECLINED --> [*]
+
+@enduml

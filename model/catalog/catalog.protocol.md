@@ -73,7 +73,7 @@ The catalog is a DCAT catalog with the following restrictions:
 
 1. Each DCAT `Dataset` must have at least one DCAT `Distribution`. 
 2. The DCAT `Distribution` must have at least one `DataService` which specifies where the distribution is obtained. Specifically, a `DataService` specifies the endpoint for 
-   initiating a [contract negotiation](../negotiation/contract.negotiation.protocol.md) and [transfer process](TBD).
+   initiating a [Contract Negotiation](../negotiation/contract.negotiation.protocol.md) and [Transfer Process](TBD).
 3. Each DCAT `Dataset` must have an `hasPolicy` attribute that contains an ODRL `Offer`.
 4. Each ODRL `Offer` must have a unique UUID (ODRL `uid`).
 5. Each ODRL `Offer` must be unique to a dataset since the target of the offer is derived from its enclosing context.

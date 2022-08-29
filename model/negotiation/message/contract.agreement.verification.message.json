@@ -4,8 +4,7 @@
     "odrl": "https://www.w3.org/TR/odrl-model"
   },
   "@type": "edc:ContractAgreementAccepted",
-  "correlationId": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
-  "agreementId": "e8dc8655-44c2-46ef-b701-4cffdc2faa44",
+  "negotiationId": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
   "edc:consumerSignature": {
     "timestamp": 121212,
     "hash": "....",

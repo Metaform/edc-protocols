@@ -2,9 +2,9 @@
   "@context": {
     "edc": "XXXXXXX"
   },
-  "@id": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
+  "@id": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
   "@type": "edc:ContractRequest",
-  "dataset": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88",
+  "dataSet": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88",
   "offer": "urn:uuid:2828282:3dd1add8-4d2d-569e-d634-8394a8836a88",
   "callbackAddress": "https://......"
 }

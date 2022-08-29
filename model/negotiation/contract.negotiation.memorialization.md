@@ -1,9 +1,25 @@
-# Cryptography and Signing 
-- [Jackson Canonicalization](https://cowtowncoder.medium.com/jackson-tips-sorting-json-using-jsonnode-ce4476e37aee)
-- [JCS Signing](https://connect2id.com/blog/how-to-secure-json-objects-with-hmac)
-- [JWS Signing](https://connect2id.com/products/nimbus-jose-jwt/examples/jws-with-rsa-signature)
-- [JOSE JWS](https://cyberphone.github.io/doc/security/jose-jcs.html) 
-- [JWS/CT](https://www.ietf.org/archive/id/draft-jordan-jws-ct-08.html) 
+# Contract Negotiation Memorialization
+
+Parties in a dataspace may wish to memorialize a contract agreement with one or more third-party `clearing house` services. A clearing house service is a trusted actor that can 
+be used to provide proof that an event occurred at a given time and has not been tampered with. For example, a consumer may memorialize that a signed _contract agreement was
+received from a provider. Likewise, a provider may memorialize that a signed _contract agreement verification_ was received from a consumer. The data to be memorialized is termed 
+an **_event_**.
+
+Events:
+
+- are opaque to the clearing house, i.e. the clearing house only receives a hash of the event.
+- cannot be correlated between the provider and consumer by the clearing house. In other words, the clearing house cannot infer that a contract agreement was made by two specific
+  parties by correlating events without additional information.
+- may be memorialized with multiple clearing houses for redundancy. 
+              
+Memorialization is designed as a protocol that can be layered on top of the _**contract negotiation protocol**_.  
+
+## Design Principles
+1. Parties memorialize events with a clearing house agent. Events contain data with a GUID. For example, a contract signing event may include the contract agreement.
+2. The purpose of memorialization is to provide proof that an event occurred and that the data associated with the event has not been tampered with. 
+3. Consumer and provider memorialization are independent processes.
+4. The counter-party to an agreement event and its data are opaque to the clearing house. Only the party memorializing the event is known.
+5. The role of the clearing house is **NOT** to prove two parties signed an agreement.
 
 # Approach
 ## JWS Clear Text JSON Signature Option 
@@ -12,18 +28,11 @@
 by an empty string:  XXXX.PAYLOAD.YYYY becomes XXXX..YYYY. Detached mode is described in the JWS spec.
 - Maintains Signed JSON data in JSON format.
 
-
 # Clearing House Memorialization
 
 The clearing house is a secure event store that is used to provide proof that an event occurred at a given time and has not been tampered with. 
 
-## Principles
-1. Parties memorialize events with a clearing house agent. Events contain data with a GUID. For example, a contract signing event may include the contract agreement.
-2. The purpose of memorialization is to provide proof that an event occurred and that the data associated with the event has not been tampered with. 
-3. Consumer and provider memorialization are independent processes.
-4. The counter-party to an agreement event and its data are opaque to the clearing house. Only the party memorializing the event is known.
-5. The role of the clearing house is **NOT** to prove two parties signed an agreement.
- 
+![](./contract.negotiation.memorialization.png)  
 
 ## Consumer Flow
 1. Consumer receives the signed provider agreement (agreement with a detached JWS). (This is before the consumer has signed the agreement)
@@ -59,6 +68,13 @@ memorialized using the clearing house timestamp.
 #### Consumer does not verify
 The provider does not advance the state to FINALIZED and the consumer will not have access to the data. The provider may need to send a message to the 
 clearing house, which records with a timestamp. The timestamp is necessary to avoid race conditions.
+
+# Bibliography 
+- [Jackson Canonicalization](https://cowtowncoder.medium.com/jackson-tips-sorting-json-using-jsonnode-ce4476e37aee)
+- [JCS Signing](https://connect2id.com/blog/how-to-secure-json-objects-with-hmac)
+- [JWS Signing](https://connect2id.com/products/nimbus-jose-jwt/examples/jws-with-rsa-signature)
+- [JOSE JWS](https://cyberphone.github.io/doc/security/jose-jcs.html) 
+- [JWS/CT](https://www.ietf.org/archive/id/draft-jordan-jws-ct-08.html) 
 
 
 

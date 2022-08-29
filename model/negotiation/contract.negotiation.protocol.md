@@ -35,7 +35,8 @@ The CN state machine is represented in the following diagram. Note that transiti
 
 ![](./contract.negotiation.state.machine.png)
 
-Terminal states are final; the state machine may not transition to another state.
+Transition marked with `C` indicate a message sent by the consumer, transitions marked with `P` indicate a provider message. Terminal states are final; the state machine may 
+not transition to another state.
 
 ## Message Types
 

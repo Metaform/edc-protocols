@@ -56,7 +56,3 @@ Link: <https://provider.com/catalog?page=2&per_page=100>; rel="previous"
 }
 ```
 
-## DCAT
-
-- hasPolicy must point to an ODRL Offer, which must have a unique id.
-- The offer must be unique to the dataset since the target of the offer is derived from its enclosing context

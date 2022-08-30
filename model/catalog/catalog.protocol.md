@@ -23,7 +23,7 @@ The catalog protocol defines a how a catalog is exchanged between a catalog serv
 
 **Example**: Abstract GET
 
-**Response**: [CatalogMessage](./message/catalog.message.json) containing the [DCAT catalog](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog. 
+**Response**: [CatalogMessage](./message/catalog.message.json) containing the [DCAT catalog](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog). 
 
 **Schema**: (xx)[]
 

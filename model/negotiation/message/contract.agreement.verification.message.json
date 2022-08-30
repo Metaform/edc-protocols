@@ -1,6 +1,6 @@
 {
   "@context": {
-    "edc": "XXXXXXX",
+    "edc": "...",
     "odrl": "https://www.w3.org/TR/odrl-model"
   },
   "@type": "edc:ContractAgreementAccepted",

@@ -1,6 +1,6 @@
 {
   "@context": {
-    "edc": "XXXXXXX"
+    "edc": "..."
   },
   "@id": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
   "@type": "edc:ContractRequest",

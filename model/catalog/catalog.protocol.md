@@ -6,7 +6,7 @@ This document outlines the catalog protocol. The following terms are used:
 
 - A _**message type**_ defines the structure of a _message_.
 - A _**message**_  is an instantiation of a _message type_.
-- A _**catalog**_ is a DCAT catalog offered by a _provider_ 
+- A _**catalog**_ is a [DCAT catalog](https://www.w3.org/TR/vocab-dcat-3/) offered by a _provider_ 
 - a _**catalog service**_ is a provider participant agent that advertises offered assets
 - A _**consumer**_ is a participant agent that requests access to an offered asset.
 
@@ -23,14 +23,14 @@ The catalog protocol defines a how a catalog is exchanged between a catalog serv
 
 **Example**: Abstract GET
 
-**Response**: [CatalogMessage](./message/catalog.message.json) containing the DCAT catalog. 
+**Response**: [CatalogMessage](./message/catalog.message.json) containing the [DCAT catalog](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog. 
 
 **Schema**: (xx)[]
 
 #### Description
 
 The _CatalogRequestMessage_ is an abstract empty body message sent by a consumer to a catalog service. The catalog service MUST respond with a `CatalogMessage,` which is a 
-valid `DCAT Catalog`.
+valid [DCAT Catalog](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog.
 
 The catalog service MAY require an authorization token. Details for including that token can be found in the relevant catalog binding specification. Similarly, pagination may
 be defined in the relevant catalog binding specification.

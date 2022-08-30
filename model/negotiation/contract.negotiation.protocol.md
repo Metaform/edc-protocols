@@ -178,8 +178,6 @@ The _ContractAgreementFinalizeMessage_ is sent by a provider to indicate a contr
 
 **Example**: [AbandonMessage](./message/abandon.message.json)
 
-**Response**: OK or ERROR
-
 **Schema**: (xx)[]
 
 #### Description
@@ -193,8 +191,6 @@ The _AbandonMessage_ is sent by a consumer or provider indicating it has abandon
 **Resulting State**: ERROR
 
 **Example**: [NegotiationErrorMessage](./message/negotiation.error.message.json)
-
-**Response**: OK or ERROR
 
 **Schema**: (xx)[]
 

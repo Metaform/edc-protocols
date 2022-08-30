@@ -29,7 +29,7 @@ The catalog protocol defines a how a catalog is exchanged between a catalog serv
 
 #### Description
 
-The _CatalogRequestMessage_ is an abstract empty body message sent by a consumer to a catalog service. The catalog service MUST respond with a `CatalogMessage,` which is a 
+The `CatalogRequestMessage` is an abstract empty body message sent by a consumer to a catalog service. The catalog service MUST respond with a `CatalogMessage,` which is a 
 valid [DCAT Catalog](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog.
 
 The catalog service MAY require an authorization token. Details for including that token can be found in the relevant catalog binding specification. Similarly, pagination may
@@ -64,7 +64,7 @@ as OAuth 2 or Web DIDs.
 
 ### Catalog Brokers
 
-A dataspace may include _catalog brokers_. A catalog broker is a consumer that has trusted access to 1..N upstream catalog services and advertises their respective catalogs as a
+A dataspace may include _**catalog brokers**_. A catalog broker is a consumer that has trusted access to 1..N upstream catalog services and advertises their respective catalogs as a
 single catalog service. The broker is expected to honor upstream access control requirements.
 
 ## DCAT and ODRL Profiles

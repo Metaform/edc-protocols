@@ -14,8 +14,7 @@ The catalog protocol defines a how a catalog is exchanged between a catalog serv
 
 ## Message Types
 
-### Notes
-- Concrete wire formats are defined by the protocol binding, e.g. HTTPS. 
+Note that concrete wire formats are defined by the protocol binding, e.g. HTTPS. 
 
 ### 1. CatalogRequestMessage
 

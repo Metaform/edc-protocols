@@ -49,8 +49,8 @@ caching the results, and executing queries against the locally-stored catalogs.
 
 ### Replication Protocol
 
-The catalog protocol is designed to be used by federated services without the need to introduce a replication protocol. Each consumer is responsible for issuing requests
-to 1..N catalog services in a dataspace and managing the results. It follows that replication is not needed, or more precisely, each consumer replicates data from 
+The catalog protocol is designed to be used by federated services without the need for a replication protocol. Each consumer is responsible for issuing requests
+to 1..N catalog services, and managing the results. It follows that a specific replication protocol is not needed, or more precisely, each consumer replicates data from 
 catalog services by issuing `CatalogRequestMessages`.  
 
 How the consumer discovers catalog services is defined by the discovery protocol adopted by a particular dataspace. 

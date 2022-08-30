@@ -53,7 +53,7 @@ The catalog protocol is designed to be used by federated services without the ne
 to 1..N catalog services, and managing the results. It follows that a specific replication protocol is not needed, or more precisely, each consumer replicates data from 
 catalog services by issuing `CatalogRequestMessages`.  
 
-How the consumer discovers catalog services is defined by the discovery protocol adopted by a particular dataspace. 
+The discovery protocol adopted by a particular dataspace defines how a consumer discovers catalog services. 
 
 ### Security
 

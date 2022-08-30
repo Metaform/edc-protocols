@@ -57,7 +57,7 @@ the token are undefined by may be an OAUTH2, Web DID, or other access token type
 
 ### Pagination
 
-A catalog service may choose to paginate the results of a `CatalogRequestMessage`. Pagination data is specified using [Web Linking](https://datatracker.ietf.org/doc/html/rfc5988)
+A catalog service may paginate the results of a `CatalogRequestMessage`. Pagination data is specified using [Web Linking](https://datatracker.ietf.org/doc/html/rfc5988)
 and the HTTP `Link` header. The `Link` header will contain URLs for navigating to previous and subsequent results. The following request sequence demonstrates pagination:
 
 

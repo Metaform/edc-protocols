@@ -43,7 +43,7 @@ TBD.
 
 ### Queries
 
-The current specification does not require a _** catalog service**_ to support catalog queries. It is expected that query capabilities will be implemented by the consumer against the 
+The current specification does not require a _**catalog service**_ to support catalog queries. It is expected that query capabilities will be implemented by the consumer against the 
 results of a `CatalogRequestMessage` since the latter is an RDF vocabulary. It is expected client-side querying to be scaled by periodically crawling provider catalog services,
 caching the results, and executing queries against the locally-stored catalogs.    
 

@@ -45,7 +45,7 @@ The CN state machine is transitioned upon receipt and acknowledgement of a messa
 ### Notes
 - Concrete wire formats are defined by the protocol binding, e.g. HTTPS. 
 - The `OK` and `ERROR` response message types are empty body responses that are mapped onto a protocol such as HTTPS.
-- All ODRL policy types (Offer, Agreement) must contain a UID (GUID).
+- All ODRL policy types (Offer, Agreement) must contain an ODRL UID that is a GUID.
 - The ODRL Agreement must have a target property containing the asset id.
 
 ### 1. ContractRequestMessage
@@ -186,13 +186,13 @@ The _ContractAgreementFinalizeMessage_ is sent by a provider to indicate a contr
 
 The _AbandonMessage_ is sent by a consumer or provider indicating it has abandoned the negotiation.
 
-### 9. ErrorMessage
+### 9. NegotiationErrorMessage
 
 **Sent by**: Consumer or Provider
 
 **Resulting State**: ERROR
 
-**Example**: [ErrorMessage](./message/error.message.json)
+**Example**: [NegotiationErrorMessage](./message/negotiation.error.message.json)
 
 **Response**: OK or ERROR
 

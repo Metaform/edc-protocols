@@ -1,0 +1,11 @@
+{
+  "@context": {
+    "edc": "..."
+  },
+  "@type": "edc:CatalogErrorMessage",
+  "code": "...",
+  "reasons": [
+    {},
+    {}
+  ]
+}

@@ -30,7 +30,7 @@ The catalog protocol defines a how a catalog is exchanged between a catalog serv
 #### Description
 
 The `CatalogRequestMessage` is an abstract empty body message sent by a consumer to a catalog service. The catalog service MUST respond with a `CatalogMessage,` which is a 
-valid [DCAT Catalog](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog.
+valid [DCAT Catalog](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog).
 
 The catalog service MAY require an authorization token. Details for including that token can be found in the relevant catalog binding specification. Similarly, pagination may
 be defined in the relevant catalog binding specification.

@@ -1,0 +1,36 @@
+@startuml
+!pragma layout smetana
+
+!include ../../diagrams/diagram.styles.puml
+
+
+abstract ParticipantAgent {
+}
+
+abstract Policy {
+}
+
+class Asset as "Asset (Dataset)"{
+}
+
+class Agreement {
+}
+
+ParticipantAgent <|-- Connector
+ParticipantAgent <|-- CatalogService
+
+Policy <|-- Offer
+Policy <|-- Agreement
+
+CatalogService *-- Catalog
+Catalog *-- Asset
+Catalog *-- DataService
+Connector <.. DataService
+Asset *-- Offer
+
+Agreement <-- Connector :  produces
+Agreement ..> Asset
+
+hide members
+
+@enduml

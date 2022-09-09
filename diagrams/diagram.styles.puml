@@ -22,9 +22,6 @@ skinparam ArrowColor $darkGray
 skinparam ArrowHeadColor $darkGray
 skinparam LifeLineBackgroundColor $darkGray
 
-skinparam AgentBackgroundColor White
-skinparam AgentBorderColor #066DFA
-
 
 skinparam CloudBackgroundColor $lightGray
 skinparam CloudBorderColor  $gray
@@ -49,10 +46,12 @@ skinparam BoxPadding 20
 skinparam ParticipantPadding 10
 
 skinparam AgentBackgroundColor White
-skinparam AgentBorderColor SkyBlue
+skinparam AgentBackgroundColor $blueFill
+skinparam AgentBorderColor #066DFA
 skinparam noteBorderColor FEF3BF
 skinparam SequenceBoxBorderColor F2F2F2
 skinparam shadowing false
+skinparam AgentBorderThickness 1
 
 skinparam NoteBackgroundColor FEFFDD
 
@@ -78,3 +77,7 @@ skinparam ActivityDiamondBorderColor $blue
 skinparam PartitionBackgroundColor $lightGray
 skinparam PartitionBorderColor $darkGray
 skinparam PartitionFontColor $darkGray
+
+skinparam ClassAttributeFontColor Black
+skinparam ClassBorderColor $blue
+skinparam ClassBackgroundColor $blueFill

@@ -1,0 +1,34 @@
+@startuml
+!pragma layout smetana
+
+!include ../../diagrams/diagram.styles.puml
+
+
+agent Participant
+agent ParticipantAgent
+agent CI as "Credential\nIssuer"
+agent IDP as "Identity\nProvider"
+agent Dataspace
+agent DataspaceAuthority as "Dataspace\nAuthority"
+agent Registry as "Dataspace\nRegistry"
+agent ClearingHouse as "Clearing\nHouse"
+
+DataspaceAuthority -down-> Registry: runs
+DataspaceAuthority -down-> Dataspace  : manages
+
+Participant -up-> Dataspace : member
+Participant -down-> ParticipantAgent : runs
+
+ParticipantAgent --> Registry : registers/uses
+
+IDP --> ParticipantAgent : issues
+ParticipantAgent --> IDP : verifies
+
+CI --> ParticipantAgent : issues
+ParticipantAgent --> CI : verifies
+
+ParticipantAgent --> ClearingHouse : memorializes
+
+
+
+@enduml

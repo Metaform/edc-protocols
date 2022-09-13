@@ -141,7 +141,7 @@ An `Offer` is an [ODRL Offer](https://www.w3.org/TR/odrl-model/#policy-offer) wi
 
 ### 2.2.1 Agreement
 
-An `Agreement` is an [ODRL Agreement(https://www.w3.org/TR/odrl-model/#policy-agreement) with the following attributes:
+An `Agreement` is an [ODRL Agreement](https://www.w3.org/TR/odrl-model/#policy-agreement) with the following attributes:
 
 - An ODRL `uid` that is a unique UUID. (ODRL PROFILE)
 - The `Agreement` class must include one `target` attribute that is the UUID of the asset the agreement is associated with. An agreement is therefore associated with **EXACTLY ONE**

@@ -1,6 +1,6 @@
 # Dataspace Information Model
 
-The information model defines the core concepts, entities, and relationships that underpin a 'Dataspace'.
+The information model defines the core concepts, entities, and relationships that underpin a `Dataspace`.
 
 ## 1. Terminology
 
@@ -76,7 +76,7 @@ A set of interactions between a provider `Connector` and consumer `Connector` th
 
 The following sections outline the Dataspace Information Model, which form the foundation of this specification.
 
-## 2.1 Dataspace Entity Relationships
+### 2.1 Dataspace Entity Relationships
 
 The relationships between the primary dataspace entities are defined as follows:
 
@@ -91,7 +91,7 @@ Note that all relationships are multiplicities unless specified.
 - A `Participant Agent` performs tasks such as publishing a catalog or engaging in an asset transfer. In order to accomplish these tasks, a participant agent may
   use a _**verifiable presentation**_ generated from a _**credential**_ obtained from a third-party issuer. A participant agent may also use an _**ID token**_ issued by a
   third-party identity provider. Note that a participant agent is a logical construct and does not necessarily correspond to a single runtime process.
-- An `Identity Provider` is trust anchor that generates `ID tokens` used to verify the identity of a `Participant Agent`. Multiple identity providers may operate in
+- An `Identity Provider` is a trust anchor that generates `ID tokens` used to verify the identity of a `Participant Agent`. Multiple identity providers may operate in
   a dataspace. The identity standard used by a provider is not defined but could be _OAuth2_ or _Decentralized Identifiers using did:web_. An identity provider may be a third-party
   or a participant itself (for example, in the case of decentralized identifiers).
 - A `Credential Issuer` issues _verifiable credentials_ used by participant agents to allow access to assets and verify usage control.
@@ -111,7 +111,7 @@ The diagram below depicts the relationships between `ParticipantAgent` types:
 ## 2.2 Classes
 
 Not all dataspace entities have a concrete _technical_ materialization; some entities may exist as purely logical constructs. For example, a `Dataspace Authority`
-and `Participant Agent` have no representation in the protocol message flows that constitute dataspace interactions. This section outlines the classes that constitute the concrete
+and `Participant Agent` have no representation in the protocol message flows that constitute dataspace interactions. This section outlines the classes that comprise the concrete
 elements of the information model, i.e. those that are represented in protocol message flows.
 
 ### 2.2.1 Catalog

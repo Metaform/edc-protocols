@@ -22,11 +22,11 @@ A `ParticipantAgent` is a technology system that performs operations on behalf o
 
 ### IdentityProvider
 
-An `IdentityProvider` is a trusted technology system that creates, maintains, and manages identity information for a `Participant` and `ParticipantsAgent`.
+An `IdentityProvider` is a trusted technology system that creates, maintains, and manages identity information for a `Participant` and `ParticipantAgents`.
 
 ### CredentialIssuer
 
-A `CredentialIssuer` is a trusted technology system that issues verifiable credentials for a `Participant` and `ParticipantsAgent`.
+A `CredentialIssuer` is a trusted technology system that issues verifiable credentials for a `Participant` and `ParticipantAgents`.
 
 ### ClearingHouse
 

@@ -4,20 +4,20 @@
 !include ../../diagrams/diagram.styles.puml
 
 
-abstract ParticipantAgent {
-}
+'abstract ParticipantAgent {
+'}
 
 abstract Policy {
 }
 
-class Asset as "Asset (Dataset)"{
+class Asset as "Asset Entry"{
 }
 
 class Agreement {
 }
 
-ParticipantAgent <|-- Connector
-ParticipantAgent <|-- CatalogService
+'ParticipantAgent <|-- Connector
+'ParticipantAgent <|-- CatalogService
 
 Policy <|-- Offer
 Policy <|-- Agreement

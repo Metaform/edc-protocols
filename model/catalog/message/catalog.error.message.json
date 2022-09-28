@@ -1,6 +1,6 @@
 {
   "@context": {
-    "edc": "..."
+    "ids": "..."
   },
   "@type": "edc:CatalogErrorMessage",
   "code": "...",

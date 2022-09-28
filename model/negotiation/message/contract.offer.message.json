@@ -1,6 +1,6 @@
 {
   "@context": {
-    "edc": "...",
+    "ids": "...",
     "odrl": "https://www.w3.org/TR/odrl-model"
   },
   "@type": "edc:ContractOffer",

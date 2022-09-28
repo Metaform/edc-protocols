@@ -1,6 +1,6 @@
 {
   "@context": {
-    "edc": "..."
+    "ids": "..."
   },
   "@type": "edc:ContractOfferAccept",
   "negotiationId": "e8dc8655-44c2-46ef-b701-4cffdc2faa44",

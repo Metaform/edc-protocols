@@ -9,6 +9,7 @@ state REQUESTED: <color:$darkGray>AssetRequestMessage
 state AVAILABLE: <color:$darkGray>AssetAvailableMessage
 state IN_PROGRESS: <color:$darkGray>TransferInProgressMessage
 state COMPLETED: <color:$darkGray>TransferCompletedMessage
+state SUSPENDED: <color:$darkGray>TransferSuspendedMessage
 
 state ERROR $lightRed #$borderRed : <color:$darkGray>ErrorMessage
 state CANCELLED $lightGray #$darkGray : <color:$darkGray>TransferCancelMessage
@@ -18,7 +19,12 @@ REQUESTED -->  AVAILABLE: P
 REQUESTED -->  IN_PROGRESS: P
 AVAILABLE -->  COMPLETED: C
 IN_PROGRESS -->  COMPLETED: P
+IN_PROGRESS -->  SUSPENDED: P
+AVAILABLE -->  SUSPENDED: P
+SUSPENDED --> IN_PROGRESS: P
+SUSPENDED --> AVAILABLE: P
 COMPLETED -->[*]
+
 ERROR --> [*]
 CANCELLED --> [*]
 

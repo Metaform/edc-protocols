@@ -3,9 +3,9 @@
     "ids": "...",
     "odrl": "https://www.w3.org/TR/odrl-model"
   },
-  "@type": "edc:ContractAgreementVerification",
+  "@type": "ids:ContractAgreementVerification",
   "negotiationId": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
-  "edc:consumerSignature": {
+  "ids:consumerSignature": {
     "timestamp": 121212,
     "hash": "....",
     "signature": ""

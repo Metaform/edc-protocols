@@ -2,7 +2,7 @@
   "@context": {
     "ids": "..."
   },
-  "@type": "edc:CatalogErrorMessage",
+  "@type": "ids:CatalogErrorMessage",
   "code": "...",
   "reasons": [
     {},

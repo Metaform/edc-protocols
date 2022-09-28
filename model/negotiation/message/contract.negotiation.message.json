@@ -3,7 +3,7 @@
     "ids": "..."
   },
   "@id": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
-  "@type": "edc:ContractNegotiation",
+  "@type": "ids:ContractNegotiation",
   "state": "REQUESTED",
   "checksum": "..."
 }

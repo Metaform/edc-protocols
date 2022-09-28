@@ -2,7 +2,7 @@
   "@context": {
     "ids": "..."
   },
-  "@type": "edc:AbandonMessage",
+  "@type": "ids:AbandonMessage",
   "negotiationId": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
   "code": "...",
   "reasons": [

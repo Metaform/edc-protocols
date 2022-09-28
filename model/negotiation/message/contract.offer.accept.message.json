@@ -2,7 +2,7 @@
   "@context": {
     "ids": "..."
   },
-  "@type": "edc:ContractOfferAccept",
+  "@type": "ids:ContractOfferAccept",
   "negotiationId": "e8dc8655-44c2-46ef-b701-4cffdc2faa44",
   "checksum": "..."
 }

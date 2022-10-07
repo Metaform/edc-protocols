@@ -19,9 +19,9 @@ The OpenAPI definitions for this specification can be accessed [here](TBD).
 
 In the event of a request error, the catalog service must return an appropriate HTTP code and a [CatalogErrorMessage](./catalog.protocol.md#) in the response body.
 
-| Field   | Type          |  Description                                               |
-|---------|---------------|------------------------------------------------------------|
-| code    | string        | An optional implementation-specific error code.            |
+| Field   | Type          | Description                                                 |
+|---------|---------------|-------------------------------------------------------------|
+| code    | string        | An optional implementation-specific error code.             |
 | reasons | Array[object] | An optional array of implementation-specific error objects. |
 
 ### 2. The `catalog` endpoint

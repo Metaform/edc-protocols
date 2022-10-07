@@ -1,6 +1,6 @@
 {
   "@context": {
-    "ids": "...",
+    "ids": "https://idsa.org/",
     "odrl": "https://www.w3.org/TR/odrl-model"
   },
   "@type": "ids:ContractAgreementVerification",

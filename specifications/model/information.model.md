@@ -28,7 +28,7 @@ An `IdentityProvider` is a trusted technology system that creates, maintains, an
 
 A `CredentialIssuer` is a trusted technology system that issues verifiable credentials for a `Participant` and `ParticipantAgents`.
 
-### ClearingHouse
+### ClearingHouse (TBD)
 
 A `ClearingHouse` is a trusted technology system that records and verifies domain events.
 
@@ -95,7 +95,6 @@ Note that all relationships are multiplicities unless specified.
   a dataspace. The identity standard used by a provider is not defined but could be _OAuth2_ or _Decentralized Identifiers using did:web_. An identity provider may be a third-party
   or a participant itself (for example, in the case of decentralized identifiers).
 - A `Credential Issuer` issues _verifiable credentials_ used by participant agents to allow access to assets and verify usage control.
-- A `Clearing House` is used by a participant agent to record or verify an event such as the receipt of a contract agreement signature.
 
 The diagram below depicts the relationships between `ParticipantAgent` types:
 
@@ -116,7 +115,7 @@ elements of the information model, i.e. those that are represented in protocol m
 
 ### 2.2.1 Catalog
 
-A `Catalog` is a DCAT [DCAT Catalog](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog) with the following attributes:
+A `Catalog` is a [DCAT Catalog](https://www.w3.org/TR/vocab-dcat-3/#Class:Catalog) with the following attributes:
 
 - 0..N  `Asset Entries`. Since a catalog may be dynamically generated for a request based on the requesting participant's credentials it is possible for it to contain 0 matching
   asset entries.  (DCAT PROFILE)
@@ -143,9 +142,8 @@ An `Offer` is an [ODRL Offer](https://www.w3.org/TR/odrl-model/#policy-offer) wi
 
 An `Agreement` is an [ODRL Agreement](https://www.w3.org/TR/odrl-model/#policy-agreement) with the following attributes:
 
-- An ODRL `uid` that is a unique UUID. (ODRL PROFILE)
-- The `Agreement` class must include one `target` attribute that is the UUID of the asset the agreement is associated with. An agreement is therefore associated with **EXACTLY ONE**
-  asset. (ODRL PROFILE)
+- The `Agreement` class must include one `target` attribute that is the UUID of the asset the agreement is associated with. An agreement is therefore associated with **EXACTLY
+  ONE** asset. (ODRL PROFILE)
 
 
 

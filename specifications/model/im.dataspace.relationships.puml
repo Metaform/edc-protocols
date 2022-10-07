@@ -11,13 +11,13 @@ agent IDP as "Identity\nProvider"
 agent Dataspace
 agent DataspaceAuthority as "Dataspace\nAuthority"
 agent Registry as "Dataspace\nRegistry"
-agent ClearingHouse as "Clearing\nHouse"
 
-DataspaceAuthority -down-> Registry: runs
 DataspaceAuthority -down-> Dataspace  : manages
 
-Participant -up-> Dataspace : member
-Participant -down-> ParticipantAgent : runs
+Dataspace -down-> Registry: uses
+
+Participant -up-> Dataspace : member of
+Participant -down-> ParticipantAgent : controls
 
 ParticipantAgent --> Registry : registers/uses
 
@@ -27,7 +27,6 @@ ParticipantAgent --> IDP : verifies
 CI --> ParticipantAgent : issues
 ParticipantAgent --> CI : verifies
 
-ParticipantAgent --> ClearingHouse : memorializes
 
 
 

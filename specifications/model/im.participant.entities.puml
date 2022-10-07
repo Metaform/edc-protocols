@@ -4,11 +4,10 @@
 !include ../../diagrams/diagram.styles.puml
 
 
-'abstract ParticipantAgent {
-'}
-
 abstract Policy {
 }
+
+hide circle
 
 class Asset as "Asset Entry"{
 }
@@ -16,8 +15,6 @@ class Asset as "Asset Entry"{
 class Agreement {
 }
 
-'ParticipantAgent <|-- Connector
-'ParticipantAgent <|-- CatalogService
 
 Policy <|-- Offer
 Policy <|-- Agreement
@@ -34,3 +31,4 @@ Agreement ..> Asset
 hide members
 
 @enduml
+           Cata

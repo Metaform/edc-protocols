@@ -1,6 +1,6 @@
 {
   "@context": {
-    "ids": "..."
+    "ids": "https://idsa.org/"
   },
   "@type": "ids:NegotiationErrorMessage",
   "negotiationId": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",

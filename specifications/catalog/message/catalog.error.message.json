@@ -1,9 +1,9 @@
 {
   "@context": {
-    "ids": "..."
+    "ids": "https://idsa.org/"
   },
   "@type": "ids:CatalogErrorMessage",
-  "code": "...",
+  "code": "123:A",
   "reasons": [
     {},
     {}

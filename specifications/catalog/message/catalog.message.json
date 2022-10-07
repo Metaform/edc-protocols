@@ -1,16 +1,19 @@
 {
   "@context": {
-    "dcat": "http://www.w3.org/ns/dcat",
-    "dct": "http://purl.org/dc/terms",
-    "odrl": "https://www.w3.org/TR/odrl-model",
-    "ids": "..."
+    "dcat": "http://www.w3.org/ns/dcat/",
+    "dct": "http://purl.org/dc/terms/",
+    "odrl": "https://www.w3.org/TR/odrl-model/",
+    "ids": "https://idsa.org/"
   },
   "@id": "urn:uuid:3afeadd8-ed2d-569e-d634-8394a8836d57",
   "@type": "dcat:Catalog",
   "dct:title": "Data Provider A Catalog",
   "dct:description": "A catalog of data items",
   "dct:publisher": "Data Provider A",
-  "dct:DataService": [
+  "dcat:keyword": [
+    "traffic", "government"
+  ],
+  "dcat:DataService": [
     {
       "@id": "urn:uuid:4aa2dcc8-4d2d-569e-d634-8394a8834d77",
       "@type": "dcat:DataService",
@@ -27,21 +30,22 @@
       "dcat:keyword": [
         "traffic"
       ],
-      "odrl:hasPolicy": [
+      "dcat:hasPolicy": [
         {
-          "@type": {
-            "@policytype": "offer"
+          "@context": {
+            "@vocab": "https://www.w3.org/TR/odrl-model/"
           },
           "uid": "urn:uuid:2828282:3dd1add8-4d2d-569e-d634-8394a8836a88",
           "permissions": [
             {
+              "action": "use",
               "constraints": [
                 {
                   "leftExpression": {
-                    "value": "spatial"
+                    "@value": "spatial"
                   },
                   "rightExpression": {
-                    "value": "EU"
+                    "@value": "EU"
                   },
                   "operator": "EQ"
                 }
@@ -59,7 +63,7 @@
           "dct:format": {
             "@id": "ids:s3+push"
           },
-          "accessService": "urn:uuid:4aa2dcc8-4d2d-569e-d634-8394a8834d77"
+          "dcat:accessService": "urn:uuid:4aa2dcc8-4d2d-569e-d634-8394a8834d77"
         }
       ]
     }

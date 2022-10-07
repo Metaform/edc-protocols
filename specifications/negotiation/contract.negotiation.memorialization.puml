@@ -1,7 +1,7 @@
 @startuml "hub-request-processing"
 !pragma layout smetana
 
-!include ../../diagrams/diagram.styles.puml
+!include ../diagrams/diagram.styles.puml
 
 'Consumer -> Provider : JWS w/ DID and Verifiable Credentials
 Provider -> Consumer: ContractAgreementMessage

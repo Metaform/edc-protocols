@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This specification defines a RESTful API over HTTPS for the [Catalog Protocol] specification.
+This specification defines a RESTful API over HTTPS for the [Catalog Protocol].
 
 The OpenAPI definitions for this specification can be accessed [here](TBD).
 

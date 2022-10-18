@@ -27,11 +27,11 @@ The CN states are:
 - **PROVIDER_FINALIZED** - The provider has sent a finalization message to the consumer and the provider has sent an ACK response. Data is now available to the consumer.
 - **DECLINED** - The provider or consumer has declined the contract negotiation. This is a terminal state.
 - **ERROR** - The provider or consumer has placed the contract negotiation in an error state. This is a terminal state.
-- **ABANDONED** - The provider or consumer has placed the contract negotiation in an abandoned state. This is a terminal state.
+- **CANCELLED** - The provider or consumer has placed the contract negotiation in an cancelled state. This is a terminal state.
 
 ### Contract Negotiation State Machine
 
-The CN state machine is represented in the following diagram. Note that transitions to the ERROR or ABANDONED states may occur from any other state and are not shown for simplicty:
+The CN state machine is represented in the following diagram. Note that transitions to the ERROR or CANCELLED states may occur from any other state and are not shown for simplicty:
 
 ![](./contract.negotiation.state.machine.png)
 
@@ -89,7 +89,7 @@ The _ContractOfferMessage_ is sent by a consumer or provider to exchange a contr
 
 -   The contract offer must include a target containing the dataset id.  
 
-### 3. ContractOfferAcceptMessage
+### 3. ContractOfferAcceptMessage (ContractOfferEventMessage?)
 
 **Sent by**: Consumer
 
@@ -105,7 +105,7 @@ The _ContractOfferMessage_ is sent by a consumer or provider to exchange a contr
 
 The _ContractOfferAcceptMessage_ is sent by a consumer when it accepts a provider contract offer.
 
-### 4. ContractOfferDeclineMessage
+### 4. ContractOfferDeclineMessage (ContractOfferEventMessage?)
 
 **Sent by**: Consumer or Provider
 
@@ -170,19 +170,19 @@ The _ContractAgreementVerificationMessage_ is sent by a consumer to verify the a
 
 The _ContractAgreementFinalizeMessage_ is sent by a provider to indicate a contract agreement has been finalized and the associated asset is accessible.
 
-### 8. AbandonMessage
+### 8. CancelMessage
 
 **Sent by**: Consumer or Provider
 
-**Resulting State**: ABANDONED
+**Resulting State**: CANCELLED
 
-**Example**: [AbandonMessage](./message/abandon.message.json)
+**Example**: [CancelMessage](./message/cancel.message.json)
 
 **Schema**: (xx)[]
 
 #### Description
 
-The _AbandonMessage_ is sent by a consumer or provider indicating it has abandoned the negotiation.
+The _CancelMessage_ is sent by a consumer or provider indicating it has cancelled the negotiation.
 
 ### 9. NegotiationErrorMessage
 
@@ -196,7 +196,7 @@ The _AbandonMessage_ is sent by a consumer or provider indicating it has abandon
 
 #### Description
 
-The _AbandonMessage_ is sent by a consumer or provider indicating an error has occurred.
+The _NegotiationErrorMessage_ is sent by a consumer or provider indicating an error has occurred.
 
 ## Checksum Calculations
 

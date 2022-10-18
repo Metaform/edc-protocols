@@ -14,8 +14,8 @@ state CONSUMER_VERIFIED: <color:$darkGray>ContractAgreementVerificationMessage
 state PROVIDER_FINALIZED: <color:$darkGray>ContractAgreementFinalizeMessage
 state DECLINED:  <color:$darkGray>ContractOfferDeclineMessage
 
-state ERROR $lightRed #$borderRed : <color:$darkGray>ErrorMessage
-state ABANDONED $lightRed #$borderRed:  <color:$darkGray>AbandonMessage
+state ERRORED $lightRed #$borderRed : <color:$darkGray>ErrorMessage
+state CANCELLED $lightRed #$borderRed:  <color:$darkGray>CancelMessage
 
 [*] --> REQUESTED: C
 REQUESTED -->  PROVIDER_OFFERED: P
@@ -37,8 +37,8 @@ PROVIDER_AGREED --> CONSUMER_VERIFIED: C
 CONSUMER_VERIFIED --> PROVIDER_FINALIZED: P
 
 PROVIDER_FINALIZED -->[*]
-ERROR --> [*]
-ABANDONED --> [*]
+ERRORED --> [*]
+CANCELLED --> [*]
 DECLINED --> [*]
 
 @enduml

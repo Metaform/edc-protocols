@@ -2,8 +2,8 @@
   "@context": {
     "ids": "https://idsa.org/"
   },
-  "@type": "ids:ContractNegotiationCreationMessage",
-  "ids:negotiationId": "e8dc8655-44c2-46ef-b701-4cffdc2faa44",
-  "ids:state": "requested"
+  "@id": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
+  "@type": "ids:ContractNegotiation",
+  "state": "OFFER_REQUESTED",
+  "checksum": "..."
 }
-

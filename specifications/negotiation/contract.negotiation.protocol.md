@@ -57,7 +57,7 @@ The CN state machine is transitioned upon receipt and acknowledgement of a messa
 
 **Example**: [ContractRequestMessage](./message/contract.request.message.json)
 
-**Response**: [ContractNegotiation](./message/contract.negotiation.message.json) containing the negotiation id or ERROR.
+**Response**: [ContractNegotiation](./message/contract.negotiation.json) containing the negotiation id or ERROR.
 
 **Schema**: (xx)[]
 

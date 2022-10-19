@@ -139,13 +139,13 @@ The _ContractAgreementMessage_ is sent by a provider when it agrees to a contrac
 
 The _ContractAgreementVerificationMessage_ is sent by a consumer to verify the acceptance of a contract agreement.
 
-### 7. ContractAgreementFinalizeMessage
+### 7. ContractAgreementFinalizationMessage
 
 **Sent by**: Provider
 
 **Resulting State**: PROVIDER_FINALIZED
 
-**Example**: [ContractAgreementFinalizeMessage](./message/contract.agreement.finalize.message.json)
+**Example**: [ContractAgreementFinalizationMessage](./message/contract.agreement.finalization.message.json)
 
 **Response**: OK or ERROR
 
@@ -153,7 +153,7 @@ The _ContractAgreementVerificationMessage_ is sent by a consumer to verify the a
 
 #### Description
 
-The _ContractAgreementFinalizeMessage_ is sent by a provider to indicate a contract agreement has been finalized and the associated asset is accessible.
+The _ContractAgreementFinalizationMessage_ is sent by a provider to indicate a contract agreement has been finalized and the associated asset is accessible.
 
 ### 8. CancelMessage
 
@@ -161,7 +161,7 @@ The _ContractAgreementFinalizeMessage_ is sent by a provider to indicate a contr
 
 **Resulting State**: CANCELLED
 
-**Example**: [CancelMessage](./message/cancel.message.json)
+**Example**: [CancelMessage](./message/contract.negotiation.cancellation.message.json)
 
 **Schema**: (xx)[]
 
@@ -175,7 +175,7 @@ The _CancelMessage_ is sent by a consumer or provider indicating it has cancelle
 
 **Resulting State**: ERROR
 
-**Example**: [NegotiationErrorMessage](./message/negotiation.error.message.json)
+**Example**: [NegotiationErrorMessage](./message/contract.negotiation.error.message.json)
 
 **Schema**: (xx)[]
 

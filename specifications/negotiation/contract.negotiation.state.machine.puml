@@ -11,7 +11,7 @@ state CONSUMER_OFFERED: <color:$darkGray>ContractOfferMessage
 state CONSUMER_ACCEPTED: <color:$darkGray>ContractOfferAcceptMessage
 state PROVIDER_AGREED: <color:$darkGray>ContractAgreementMessage
 state CONSUMER_VERIFIED: <color:$darkGray>ContractAgreementVerificationMessage
-state PROVIDER_FINALIZED: <color:$darkGray>ContractAgreementFinalizeMessage
+state PROVIDER_FINALIZED: <color:$darkGray>ContractAgreementFinalizationMessage
 state DECLINED:  <color:$darkGray>ContractOfferDeclineMessage
 
 state ERRORED $lightRed #$borderRed : <color:$darkGray>ErrorMessage

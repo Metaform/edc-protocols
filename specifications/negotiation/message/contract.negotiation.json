@@ -2,7 +2,7 @@
   "@context": {
     "ids": "https://idsa.org/"
   },
-  "@type": "ids:ContractNegotiationCreated",
+  "@type": "ids:ContractNegotiationCreationMessage",
   "ids:negotiationId": "e8dc8655-44c2-46ef-b701-4cffdc2faa44",
   "ids:state": "requested"
 }

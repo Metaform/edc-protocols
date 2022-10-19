@@ -20,6 +20,6 @@ Provider -> ClearingHouse: Memorialize event
 ClearingHouse -> Provider: Signature
 end
 
-Provider -> Consumer: OK: ContractAgreementFinalizeMessage
+Provider -> Consumer: OK: ContractAgreementFinalizationMessage
 
 @enduml

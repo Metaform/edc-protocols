@@ -67,6 +67,7 @@ The _ContractRequestMessage_ is sent by a consumer to initiate a contract negoti
 
 #### Notes
 
+- The offer id refers to an existing one that was provided during the cataloging process.
 - The dataset id is not technically required but included to avoid an error where the offer is associated with a different data set.
 - `callbackAddress` is a URI indicating where messages to the consumer should be sent. If the address is not understood, the provider MUST return an UNRECOVERABLE error.
 
@@ -105,11 +106,11 @@ The _ContractOfferMessage_ is sent by a consumer or provider to exchange a contr
 #### Description
 
 The _ContractOfferEventMessage_ is sent by a consumer when it accepts or declines a provider contract offer. The `eventType` property can be `accept` or `decline`. If the event
-type is `accept`, the state machine is placed in the CONSUMER_ACCEPT state. If the event type is `decline` the state machine is placed in the DECLINED terminal state.
+type is `accept`, the state machine is placed in the CONSUMER_AGREED state. If the event type is `decline` the state machine is placed in the OFFER_DECLINED terminal state.
 
 ### 5. ContractAgreementMessage
 
-**Sent by**: Consumer or Provider
+**Sent by**: Provider
 
 **Resulting State**: PROVIDER_AGREED
 
@@ -121,7 +122,7 @@ type is `accept`, the state machine is placed in the CONSUMER_ACCEPT state. If t
 
 #### Description
 
-The _ContractAgreementMessage_ is sent by a provider when it agrees to a contract.
+The _ContractAgreementMessage_ is sent by a provider when it agrees to a contract. It contains the contract agreement with the provider's signature.
 
 ### 6. ContractAgreementVerificationMessage
 
@@ -137,7 +138,7 @@ The _ContractAgreementMessage_ is sent by a provider when it agrees to a contrac
 
 #### Description
 
-The _ContractAgreementVerificationMessage_ is sent by a consumer to verify the acceptance of a contract agreement.
+The _ContractAgreementVerificationMessage_ is sent by a consumer to verify the acceptance of a contract agreement. It contains the contract agreement with the consumer's signature.
 
 ### 7. ContractAgreementFinalizationMessage
 
@@ -155,7 +156,7 @@ The _ContractAgreementVerificationMessage_ is sent by a consumer to verify the a
 
 The _ContractAgreementFinalizationMessage_ is sent by a provider to indicate a contract agreement has been finalized and the associated asset is accessible.
 
-### 8. CancelMessage
+### 8. ContractNegotiationCancellationMessage
 
 **Sent by**: Consumer or Provider
 
@@ -167,9 +168,14 @@ The _ContractAgreementFinalizationMessage_ is sent by a provider to indicate a c
 
 #### Description
 
-The _CancelMessage_ is sent by a consumer or provider indicating it has cancelled the negotiation.
+The _ContractNegotiationCancellationMessage_ is sent by a consumer or provider indicating it has cancelled the negotiation.
 
-### 9. NegotiationErrorMessage
+#### Notes
+- The CANCELLED and DECLINED states are separated as they may be handled differently. DECLINED indicates that an offer or request have not been accepted.
+  A negotiation process with this state may need to be persisted for legal reasons. As transition change to CANCELLED can have other reasons (e.g., a
+  negotiation process started by mistake). A connector's operator may want to clean its storage from cancelled negotiations after a defined period of time.
+
+### 9. ContractNegotiationErrorMessage
 
 **Sent by**: Consumer or Provider
 
@@ -181,7 +187,7 @@ The _CancelMessage_ is sent by a consumer or provider indicating it has cancelle
 
 #### Description
 
-The _NegotiationErrorMessage_ is sent by a consumer or provider indicating an error has occurred.
+The _ContractNegotiationErrorMessage_ is sent by a consumer or provider indicating an error has occurred.
 
 ## Checksum Calculations
 

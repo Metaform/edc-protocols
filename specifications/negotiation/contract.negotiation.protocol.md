@@ -18,10 +18,10 @@ a series of states, which are tracked by the provider and consumer using message
 
 The CN states are:
 
-- **REQUESTED** - A contract for an asset has been requested by the consumer and the provider has sent an ACK response.
+- **CONSUMER_REQUESTED** - A contract for an asset has been requested by the consumer and the provider has sent an ACK response.
 - **PROVIDER_OFFERED** - The provider has sent a contract offer to the consumer and the consumer has sent an ACK response.
 - **CONSUMER_OFFERED** - The consumer has sent a contract offer to the provider and the provider has sent an ACK response.
-- **CONSUMER_ACCEPTED** - The consumer has accepted that latest contract offer and the provider has sent an ACK response.
+- **CONSUMER_AGREED** - The consumer has accepted that latest contract offer and the provider has sent an ACK response.
 - **PROVIDER_AGREED** - The provider has accepted that latest contract offer, sent an agreement to the consumer, and the consumer has sent an ACK response.
 - **CONSUMER_VERIFIED** - The consumer has sent an agreement verification to the provider and the provider has sent an ACK response.
 - **PROVIDER_FINALIZED** - The provider has sent a finalization message to the consumer and the provider has sent an ACK response. Data is now available to the consumer.
@@ -53,7 +53,7 @@ The CN state machine is transitioned upon receipt and acknowledgement of a messa
 
 **Sent by**: Consumer
 
-**Resulting State**: REQUESTED
+**Resulting State**: CONSUMER_REQUESTED
 
 **Example**: [ContractRequestMessage](./message/contract.request.message.json)
 
@@ -94,7 +94,7 @@ The _ContractOfferMessage_ is sent by a consumer or provider to exchange a contr
 
 **Sent by**: Consumer
 
-**Resulting State**: CONSUMER_ACCEPT or DECLINED
+**Resulting State**: CONSUMER_AGREED or DECLINED
 
 **Example**: [ContractOfferEventMessage](./message/contract.offer.event.message.json)
 

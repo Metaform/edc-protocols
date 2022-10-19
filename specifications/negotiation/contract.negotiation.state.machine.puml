@@ -5,32 +5,32 @@
 
 hide empty description
 
-state REQUESTED: <color:$darkGray>ContractRequestMessage
+state CONSUMER_REQUESTED: <color:$darkGray>ContractRequestMessage
 state PROVIDER_OFFERED: <color:$darkGray>ContractOfferMessage
 state CONSUMER_OFFERED: <color:$darkGray>ContractOfferMessage
-state CONSUMER_ACCEPTED: <color:$darkGray>ContractOfferAcceptMessage
+state CONSUMER_AGREED: <color:$darkGray>ContractOfferEventMessage:accepted
 state PROVIDER_AGREED: <color:$darkGray>ContractAgreementMessage
 state CONSUMER_VERIFIED: <color:$darkGray>ContractAgreementVerificationMessage
 state PROVIDER_FINALIZED: <color:$darkGray>ContractAgreementFinalizationMessage
-state DECLINED:  <color:$darkGray>ContractOfferDeclineMessage
+state DECLINED:  <color:$darkGray>ContractOfferEventMessage:declined
 
 state ERRORED $lightRed #$borderRed : <color:$darkGray>ErrorMessage
 state CANCELLED $lightRed #$borderRed:  <color:$darkGray>CancelMessage
 
-[*] --> REQUESTED: C
-REQUESTED -->  PROVIDER_OFFERED: P
-REQUESTED -->  DECLINED: P
+[*] --> CONSUMER_REQUESTED: C
+CONSUMER_REQUESTED -->  PROVIDER_OFFERED: P
+CONSUMER_REQUESTED -->  DECLINED: P
 
 PROVIDER_OFFERED -->  CONSUMER_OFFERED: C
-PROVIDER_OFFERED -->  CONSUMER_ACCEPTED: C
+PROVIDER_OFFERED -->  CONSUMER_AGREED: C
 PROVIDER_OFFERED -->  DECLINED: C
 
 CONSUMER_OFFERED -->  PROVIDER_OFFERED: P
 CONSUMER_OFFERED -->  DECLINED: P
 CONSUMER_OFFERED -->  PROVIDER_AGREED: P
 
-CONSUMER_ACCEPTED --> PROVIDER_AGREED: P
-CONSUMER_ACCEPTED --> DECLINED: P
+CONSUMER_AGREED --> PROVIDER_AGREED: P
+CONSUMER_AGREED --> DECLINED: P
 
 PROVIDER_AGREED --> CONSUMER_VERIFIED: C
 

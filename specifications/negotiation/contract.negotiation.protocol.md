@@ -35,15 +35,16 @@ The CN state machine is represented in the following diagram. Note that transiti
 
 ![](./contract.negotiation.state.machine.png)
 
-Transition marked with `C` indicate a message sent by the consumer, transitions marked with `P` indicate a provider message. Terminal states are final; the state machine may 
+Transition marked with `C` indicate a message sent by the consumer, transitions marked with `P` indicate a provider message. Terminal states are final; the state machine may
 not transition to another state.
 
 ## Message Types
 
-The CN state machine is transitioned upon receipt and acknowledgement of a message. This section details those messages as abstract message types. 
+The CN state machine is transitioned upon receipt and acknowledgement of a message. This section details those messages as abstract message types.
 
 ### Notes
-- Concrete wire formats are defined by the protocol binding, e.g. HTTPS. 
+
+- Concrete wire formats are defined by the protocol binding, e.g. HTTPS.
 - The `OK` and `ERROR` response message types are empty body responses that are mapped onto a protocol such as HTTPS.
 - All ODRL policy types (Offer, Agreement) must contain an ODRL UID that is a GUID.
 - The ODRL Agreement must have a target property containing the asset id.
@@ -56,7 +57,7 @@ The CN state machine is transitioned upon receipt and acknowledgement of a messa
 
 **Example**: [ContractRequestMessage](./message/contract.request.message.json)
 
-**Response**: [ContractNegotiation](./message/contract.negotiation.message.json) containing the negotiation id or ERROR. 
+**Response**: [ContractNegotiation](./message/contract.negotiation.message.json) containing the negotiation id or ERROR.
 
 **Schema**: (xx)[]
 
@@ -87,31 +88,15 @@ The _ContractOfferMessage_ is sent by a consumer or provider to exchange a contr
 
 #### Notes
 
--   The contract offer must include a target containing the dataset id.  
+- The contract offer must include a target containing the dataset id.
 
-### 3. ContractOfferAcceptMessage (ContractOfferEventMessage?)
+### 3. ContractOfferEventMessage
 
 **Sent by**: Consumer
 
-**Resulting State**: CONSUMER_ACCEPT
+**Resulting State**: CONSUMER_ACCEPT or DECLINED
 
-**Example**: [ContractOfferAcceptMessage](./message/contract.offer.accept.message.json)
-
-**Response**: OK or ERROR
-
-**Schema**: (xx)[]
-
-#### Description
-
-The _ContractOfferAcceptMessage_ is sent by a consumer when it accepts a provider contract offer.
-
-### 4. ContractOfferDeclineMessage (ContractOfferEventMessage?)
-
-**Sent by**: Consumer or Provider
-
-**Resulting State**: DECLINED
-
-**Example**: [ContractOfferDeclineMessage](./message/contract.offer.decline.message.json)
+**Example**: [ContractOfferEventMessage](./message/contract.offer.event.message.json)
 
 **Response**: OK or ERROR
 
@@ -119,8 +104,8 @@ The _ContractOfferAcceptMessage_ is sent by a consumer when it accepts a provide
 
 #### Description
 
-The _ContractOfferAcceptMessage_ is sent by a consumer or provider when it declines a contract offer or consumer ContractOfferAcceptMessage, thereby placing the state machine in
-the DECLINED terminal state.
+The _ContractOfferEventMessage_ is sent by a consumer when it accepts or declines a provider contract offer. The `eventType` property can be `accept` or `decline`. If the event
+type is `accept`, the state machine is placed in the CONSUMER_ACCEPT state. If the event type is `decline` the state machine is placed in the DECLINED terminal state.
 
 ### 5. ContractAgreementMessage
 
@@ -207,7 +192,6 @@ Checksums are calculated by creating the [[JWS/CT]](#references) of ...
 - [[JCS] JSON Canonicalization Scheme](https://www.ietf.org/archive/id/draft-jordan-jws-ct-08.html)
 - [[JWS/CT] JWS Clear Text JSON Signature Option](https://www.ietf.org/archive/id/draft-jordan-jws-ct-08.html)
 - [[JWS] JSON Web Signature](https://www.rfc-editor.org/rfc/rfc7797.html)
-
 
 ## JWS Clear Text JSON Signature Option
 

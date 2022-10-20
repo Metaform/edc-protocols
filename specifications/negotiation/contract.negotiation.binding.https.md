@@ -194,7 +194,7 @@ state is successfully transitioned, the provider must return HTTP code 200 (OK).
 
 All callback paths are relative to the `callbackAddress` base URL specified in the `ContractRequestMessage` that initiated a contract negotiation. For example, if
 the `callbackAddress` is specified as `https://connector.consumer/callback` and a callback path binding is `negotiations/:id/offers`, the resolved URL will
-be `https://connector.consumer/callback/negotiations/:id/offers`.
+be `https://connector.consumer.com/callback/negotiations/:id/offers`.
 
 ### 3.2 The consumer `negotiations/:id/offers` resource
 

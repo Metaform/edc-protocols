@@ -140,13 +140,13 @@ The _ContractAgreementMessage_ is sent by a provider when it agrees to a contrac
 
 The _ContractAgreementVerificationMessage_ is sent by a consumer to verify the acceptance of a contract agreement. It contains the contract agreement with the consumer's signature.
 
-### 7. ContractAgreementFinalizationMessage
+### 7. ContractAgreementEventMessage
 
 **Sent by**: Provider
 
 **Resulting State**: PROVIDER_FINALIZED
 
-**Example**: [ContractAgreementFinalizationMessage](./message/contract.agreement.finalization.message.json)
+**Example**: [ContractAgreementEventMessage](./message/contract.agreement.event.message.json)
 
 **Response**: OK or ERROR
 
@@ -154,7 +154,13 @@ The _ContractAgreementVerificationMessage_ is sent by a consumer to verify the a
 
 #### Description
 
-The _ContractAgreementFinalizationMessage_ is sent by a provider to indicate a contract agreement has been finalized and the associated asset is accessible.
+The _ContractAgreementEventMessage_ is sent by a provider. When the `eventType` property is set to `finalize`, a contract agreement has been finalized and the associated asset is
+accessible. The state machine is transitioned to the PROVIDER_FINALIZED state. Other event types may be defined in the future.
+
+It is an error for a consumer to send a contract agreement event to the provider.
+
+Note that contract events are not intended for propagation of agreement state after a contract negotiation has entered a terminal state. It is considered an error for a provider to
+send a contract agreement event after the negotiation state machine has entered the PROVIDER_FINALIZED state.
 
 ### 8. ContractNegotiationCancellationMessage
 
@@ -171,6 +177,7 @@ The _ContractAgreementFinalizationMessage_ is sent by a provider to indicate a c
 The _ContractNegotiationCancellationMessage_ is sent by a consumer or provider indicating it has cancelled the negotiation.
 
 #### Notes
+
 - The CANCELLED and DECLINED states are separated as they may be handled differently. DECLINED indicates that an offer or request have not been accepted.
   A negotiation process with this state may need to be persisted for legal reasons. As transition change to CANCELLED can have other reasons (e.g., a
   negotiation process started by mistake). A connector's operator may want to clean its storage from cancelled negotiations after a defined period of time.

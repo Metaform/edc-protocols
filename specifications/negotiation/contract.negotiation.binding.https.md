@@ -28,7 +28,7 @@ a [ContractNegotiationErrorMessage](./message/contract.negotiation.error.message
 
 ### 2.2.1 State transition errors
 
-If a client or provider connector makes a request that results in an invalid contract negotiation state transition as defined in the Contract Negotiation Protocol, it must return
+If a client or provider connector makes a request that results in an invalid contract negotiation state transition as defined by the Contract Negotiation Protocol, it must return
 an HTTP code 400 (Bad Request) with an NegotiationErrorMessage in the response body.
 
 ### 2.4 The provider `negotiations` resource
@@ -127,7 +127,7 @@ Authorization: ...
     "ids": "https://idsa.org/",
     "odrl": "https://www.w3.org/TR/odrl-model"
   },
-  "@type": "ids:ContractOffer",
+  "@type": "ids:ContractOfferMessage",
   "ids:negotiationId": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
   "offer": {
     "@type": "odrl:Offer",
@@ -212,7 +212,7 @@ Authorization: ...
     "ids": "https://idsa.org/",
     "odrl": "https://www.w3.org/TR/odrl-model"
   },
-  "@type": "ids:ContractOffer",
+  "@type": "ids:ContractOfferMessage",
   "ids:negotiationId": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
   "offer": {
     "@type": "odrl:Offer",
@@ -273,12 +273,12 @@ NegotiationErrorMessage in the response body
 
 If the current contract offer was created by the provider, the consumer must return HTTP code 400 (Bad Request) with an NegotiationErrorMessage in the response body.
 
-### 3.4 The consumer `negotiations/:id/agreement/finalization` resource
+### 3.4 The consumer `negotiations/:id/agreement/events` resource
 
 #### 3.4.1 POST
 
-A provider can POST a [ContractAgreementFinalizationMessage](./message/contract.agreement.finalization.message.json) to the `negotiations/:id/agreement/finalization` callback to
-finalize a contract agreement. If the negotiation state is successfully transitioned, the consumer must return HTTP code 200 (OK). The response body is not specified and clients
-are not required to process it. 
+A provider can POST a [ContractAgreementEventMessage](./message/contract.agreement.event.message.json) to the `negotiations/:id/agreement/events` callback with an `eventType`
+of `finanlize` to finalize a contract agreement. If the negotiation state is successfully transitioned, the consumer must return HTTP code 200 (OK). The response body is not
+specified and clients are not required to process it. 
 
 

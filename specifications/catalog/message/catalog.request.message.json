@@ -1,6 +1,6 @@
 {
   "@context": {
-    "ids": "https://idsa.org/"
+    "ids": "https://w3id.org/idsa/core/"
   },
   "@type": "ids:CatalogRequestMessage",
   "ids:filter": {}

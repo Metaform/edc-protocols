@@ -33,7 +33,9 @@ The CN states are:
 
 The CN state machine is represented in the following diagram. Note that transitions to the ERROR or CANCELLED states may occur from any other state and are not shown for simplicty:
 
-![](./contract.negotiation.state.machine.png)
+![option1](./contract.negotiation.state.machine.png)
+
+![option2](./contract.negotiation.state.machine.option2.png)
 
 Transition marked with `C` indicate a message sent by the consumer, transitions marked with `P` indicate a provider message. Terminal states are final; the state machine may
 not transition to another state.

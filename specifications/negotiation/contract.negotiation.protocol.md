@@ -28,23 +28,16 @@ The CN states are:
 - **PROVIDER_AGREED** - The provider has accepted the latest contract offer, sent an agreement to the consumer, and the consumer has sent an ACK response.
 - **CONSUMER_VERIFIED** - The consumer has sent an agreement verification to the provider and the provider has sent an ACK response.
 - **PROVIDER_FINALIZED** - The provider has sent a finalization message including his own agreement verification to the consumer and the consumer has sent an ACK response. Data is now available to the consumer.
-- **DECLINED** - The provider or consumer has declined the contract negotiation. A declined message MUST have been exchanged and the receiver has already sent an ACK response. This is a terminal state.
 - **ERROR** - The provider or consumer has placed the contract negotiation in an error state. An error message MUST have been exchanged and the receiver has already sent an ACK response. This is a terminal state.
-- **CANCELLED** - The provider or consumer has placed the contract negotiation in an cancelled state and has sent a canellation message and the receiver has sent an ACK response. This is a terminal state.
-- **CANCELLED_OR_DECLINED** - (name open for discussion) The provider or consumer has placed the contract negotiation in a cancelled state. A cancellation message has been sent by either of the players and the other has sent an ACK response. This is a terminal state.
-- **STALED** - (name open for discussion) The provider or consumer has not reacted in a reasonable amount of time and the other player has decided to stop the negotiation. The 'time to stale' can be part of the policies or a default value, which is known by both players in advance. **No** message has been sent by either of the players. This is a terminal state.
+- **TERMINATED** - (name open for discussion) The provider or consumer has placed the contract negotiation in a cancelled state. A termination message has been sent by either of the players and the other has sent an ACK response. This is a terminal state.
+- 
 
 ### Contract Negotiation State Machine
 
 The CN state machine is represented in the following diagram. Note that transitions to the ERROR or CANCELLED states may occur from any other state and are not shown for simplicty:
 
-![option1](./contract.negotiation.state.machine.png)
+![](./contract.negotiation.state.machine.png)
 
-Option 2 (Why can a Consumer even offer anything? Isn't a Consumer request actually the same as a Consumer offer?)
-![option2](./contract.negotiation.state.machine.option2.png)
-
-Option 3 (Refelcting the 'negotiation became idle' discussion)
-![option3](./contract.negotiation.state.machine.option3.png)
 
 Transition marked with `C` indicate a message sent by the consumer, transitions marked with `P` indicate a provider message. Terminal states are final; the state machine may
 not transition to another state. 

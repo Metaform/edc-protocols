@@ -94,7 +94,8 @@ The _AssetRequestMessage_ is sent by a consumer to initiate a transfer process.
 - `callbackAddress` is a URI indicating where messages to the consumer should be sent. If the address is not understood, the provider MUST return an UNRECOVERABLE error.
 
 Providers should implement idempotent behavior for AssetRequestMessage based on the value of `@id`. Providers may choose to implement idempotent behavior for a certain period of
-time. For example, until a transfer processes has completed and been archived after an implementation-specific expiration period.
+time. For example, until a transfer processes has completed and been archived after an implementation-specific expiration period. If a request for the given `@id` has already been
+received *and* the same consumer sent the original message, the provider should respond with an appropriate _DataAddressMessage_. 
 
 Once a transfer process have been created, all associated callback messages must include a `correlationId` set to the _AssetRequestMessage_ `@id` value.
 
@@ -104,13 +105,13 @@ Providers must include a `correlationId` property in the `TransferProcessMessage
 
 - The 'dataAddress' contains a transport-specific endpoint address for pushing the asset. It may include a temporary authorization token.
 
-### TransferProcessEventMessage:ready
+### DataAddressMessage
 
 **Sent by**: Provider
 
 **Resulting State**: READIED
 
-**Example**: [TransferProcessEventMessage:ready](./message/transfer.process.event.message.json)
+**Example**: [DataAddressMessage](./message/data.address.message.json)
 
 **Response**: ACK or ERROR.
 
@@ -118,19 +119,19 @@ Providers must include a `correlationId` property in the `TransferProcessMessage
 
 #### Description
 
-The _AssetReadyMessage_ is sent by the provider to indicate the asset is ready for retrieval by the client.
+The _DataAddressMessage_ is sent by the provider to indicate the asset is ready for retrieval by the client.
 
 #### Notes
 
 - The 'dataAddress' contains a transport-specific endpoint address for obtaining the asset. It may include a temporary authorization token.
 
-### TransferProcessEventMessage:start
+### TransferProcessEventMessage:started
 
 **Sent by**: Provider
 
 **Resulting State**: STARTED
 
-**Example**: [TransferProcessEventMessage:start](./message/transfer.process.event.message.json)
+**Example**: [TransferProcessEventMessage:started](./message/transfer.process.event.message.json)
 
 **Response**: ACK or ERROR.
 
@@ -138,20 +139,21 @@ The _AssetReadyMessage_ is sent by the provider to indicate the asset is ready f
 
 #### Description
 
-The _TransferProcessEventMessage:start_ is sent by the provider to indicate the asset transfer has been initiated.
+The _TransferProcessEventMessage:started_ is sent by the provider to indicate the asset transfer has been initiated.
 
-### TransferSuspendMessage
-
-#### Description
-
-The _TransferSuspendMessage_ is sent by the provider to indicate that the asset transfer has been suspended. For example, if a policy violation was detected..
-
-### TransferProcessEventMessage:complete
+### TransferSuspensionMessage
 
 #### Description
 
-The _TransferProcessEventMessage:complete_ is sent by the provider or consumer when asset transfer has completed. Note that some data plane implementations may optimize completion notification
-by performing it as part of its wire protocol. In those cases, a _TransferCompleteMessage_ message does not need to be sent.
+The _TransferSuspensionMessage_ is sent by the provider to indicate that the asset transfer has been suspended. For example, if a policy violation was detected..
+
+### TransferProcessEventMessage:completed
+
+#### Description
+
+The _TransferProcessEventMessage:completed_ is sent by the provider or consumer when asset transfer has completed. Note that some data plane implementations may optimize completion
+notification
+by performing it as part of its wire protocol. In those cases, a _TransferProcessEventMessage:completed_ message does not need to be sent.
 
 ### TransferProcessTerminationMessage
 

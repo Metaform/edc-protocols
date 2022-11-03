@@ -6,10 +6,10 @@
 hide empty description
 
 state CONSUMER_REQUESTED: <color:$darkGray>AssetRequestMessage
-state READIED: <color:$darkGray>TransferProcessEventMessage:ready
-state STARTED: <color:$darkGray>TransferProcessEventMessage:start
-state COMPLETED: <color:$darkGray>TransferProcessEventMessage:complete
-state SUSPENDED: <color:$darkGray>TransferSuspendMessage
+state READIED: <color:$darkGray>DataAddressMessage
+state STARTED: <color:$darkGray>TransferProcessEventMessage:started
+state COMPLETED: <color:$darkGray>TransferProcessEventMessage:completed
+state SUSPENDED: <color:$darkGray>TransferSuspensionMessage
 
 state TERMINATED $lightRed #$borderRed : <color:$darkGray>TransferProcessTerminationMessage
 

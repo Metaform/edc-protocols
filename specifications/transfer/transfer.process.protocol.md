@@ -42,7 +42,7 @@ producer begins data transmission to an endpoint specified by the consumer using
 
 #### Pull Transfer
 
-A pull transfer is when the consumer data plane initiates retrieval of asset data from a producer endpoint. For example, after the consumer has issued an `AssetAvailableMessage,`
+A pull transfer is when the consumer data plane initiates retrieval of asset data from a producer endpoint. For example, after the consumer has issued an `AssetReadyMessage,`
 the consumer requests the data from the producer-specified endpoint.
 
 << Include example diagram >>
@@ -57,28 +57,105 @@ non-finite data, a TP will continue indefinitely until either the consumer or pr
 
 The TP states are:
 
-- **REQUESTED** - An asset has been requested under an `Agreement` by the consumer and the provider has sent an ACK response.
-- **AVAILABLE** -
-- **IN_PROGRESS** -
-- **COMPLETED** -
-- **CANCELLED** -
-- **ERROR** - The provider or consumer has placed the transfer process in an error state. This is a terminal state.
+- **CONSUMER_REQUESTED** - An asset has been requested under an `Agreement` by the consumer and the provider has sent an ACK response.
+- **READIED** - An asset is available for access to the consumer.
+- **STARTED** - The producer has begun pushing the asset to the consumer endpoint.
+- **COMPLETED** - The transfer has been completed by either the consumer or the producer.
+- **SUSPENDED** - The transfer has been suspended by the producer.
+- **TERMINATED** - The transfer process has been terminated by the consumer or the producer.
 
 ### Transfer Process State Machine
+
 ![](./transfer.process.state.machine.png)
 
 ## Message Types
 
 ### AssetRequestMessage
 
-- Request distribution, media type
+**Sent by**: Consumer
 
-### AssetAvailableMessage
+**Resulting State**: CONSUMER_REQUESTED
 
-### TransferInProgressMessage
+**Example**: [AssetRequestMessage](./message/asset.request.message.json)
 
-### TransferCompletedMessage
+**Response**: [TransferProcess](./message/transfer.process.json) containing the transfer process id or ERROR.
 
-### ErrorMessage
+**Schema**: (xx)[]
 
-### TransferCancelMessage
+#### Description
+
+The _AssetRequestMessage_ is sent by a consumer to initiate a transfer process.
+
+#### Notes
+
+- The `agreementId` property refers to an existing contract agreement between the consumer and provider.
+- The `dct:format` property is a format specified by a `Distribution` for the `Asset` associated with the agreement. This is generally obtained from the provider `Catalog`.
+- The `dataAddress` property must only be provided if the `dct:format` requires a push transfer.
+- `callbackAddress` is a URI indicating where messages to the consumer should be sent. If the address is not understood, the provider MUST return an UNRECOVERABLE error.
+
+Providers should implement idempotent behavior for AssetRequestMessage based on the value of `@id`. Providers may choose to implement idempotent behavior for a certain period of
+time. For example, until a transfer processes has completed and been archived after an implementation-specific expiration period.
+
+Once a transfer process have been created, all associated callback messages must include a `correlationId` set to the _AssetRequestMessage_ `@id` value.
+
+Providers must include a `correlationId` property in the `TransferProcessMessage` with a value set to the `@id` of the corresponding _AssetRequestMessage_
+
+#### Notes
+
+- The 'dataAddress' contains a transport-specific endpoint address for pushing the asset. It may include a temporary authorization token.
+
+### AssetReadyMessage
+
+**Sent by**: Provider
+
+**Resulting State**: READIED
+
+**Example**: [AssetReadyMessage](./message/asset.ready.message.json)
+
+**Response**: ACK or ERROR.
+
+**Schema**: (xx)[]
+
+#### Description
+
+The _AssetReadyMessage_ is sent by the provider to indicate the asset is ready for retrieval by the client.
+
+#### Notes
+
+- The 'dataAddress' contains a transport-specific endpoint address for obtaining the asset. It may include a temporary authorization token.
+
+### TransferStartMessage
+
+**Sent by**: Provider
+
+**Resulting State**: STARTED
+
+**Example**: [TransferStartMessage](./message/transfer.start.message.json)
+
+**Response**: ACK or ERROR.
+
+**Schema**: (xx)[]
+
+#### Description
+
+The _TransferStartMessage_ is sent by the provider to indicate the asset transfer has been initiated.
+
+### TransferSuspendMessage
+
+#### Description
+
+The _TransferSuspendMessage_ is sent by the provider to indicate that the asset transfer has been suspended. For example, if a policy violation was detected..
+
+### TransferCompleteMessage
+
+#### Description
+
+The _TransferCompleteMessage_ is sent by the provider or consumer when asset transfer has completed. Note that some data plane implementations may optimize completion notification
+by performing it as part of its wire protocol. In those cases, a _TransferCompleteMessage_ message does not need to be sent.
+
+### TransferProcessTerminationMessage
+
+#### Description
+
+The _TransferProcessTerminationMessage_ is sent by the provider or consumer at any point except a terminal state to indicate the data transfer process should stop and be placed in
+a terminal state. If the termination was due to an error, the sender may include error information. 

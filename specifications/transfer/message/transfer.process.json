@@ -1,0 +1,9 @@
+{
+  "@context": {
+    "ids": "https://idsa.org/"
+  },
+  "@id": "urn:uuid:71f8dfab-9337-4e9d-a4c7-524e04443f16",
+  "@type": "ids:TransferProcess",
+  "correlationId": "urn:uuid:4a3ad65e-d78a-4200-a666-fc47aec32f2f",
+  "state": "CONSUMER_REQUESTED"
+}

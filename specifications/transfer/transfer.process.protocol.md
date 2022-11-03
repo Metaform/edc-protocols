@@ -104,13 +104,13 @@ Providers must include a `correlationId` property in the `TransferProcessMessage
 
 - The 'dataAddress' contains a transport-specific endpoint address for pushing the asset. It may include a temporary authorization token.
 
-### AssetReadyMessage
+### TransferProcessEventMessage:ready
 
 **Sent by**: Provider
 
 **Resulting State**: READIED
 
-**Example**: [AssetReadyMessage](./message/asset.ready.message.json)
+**Example**: [TransferProcessEventMessage:ready](./message/transfer.process.event.message.json)
 
 **Response**: ACK or ERROR.
 
@@ -124,13 +124,13 @@ The _AssetReadyMessage_ is sent by the provider to indicate the asset is ready f
 
 - The 'dataAddress' contains a transport-specific endpoint address for obtaining the asset. It may include a temporary authorization token.
 
-### TransferStartMessage
+### TransferProcessEventMessage:start
 
 **Sent by**: Provider
 
 **Resulting State**: STARTED
 
-**Example**: [TransferStartMessage](./message/transfer.start.message.json)
+**Example**: [TransferProcessEventMessage:start](./message/transfer.process.event.message.json)
 
 **Response**: ACK or ERROR.
 
@@ -138,7 +138,7 @@ The _AssetReadyMessage_ is sent by the provider to indicate the asset is ready f
 
 #### Description
 
-The _TransferStartMessage_ is sent by the provider to indicate the asset transfer has been initiated.
+The _TransferProcessEventMessage:start_ is sent by the provider to indicate the asset transfer has been initiated.
 
 ### TransferSuspendMessage
 
@@ -146,11 +146,11 @@ The _TransferStartMessage_ is sent by the provider to indicate the asset transfe
 
 The _TransferSuspendMessage_ is sent by the provider to indicate that the asset transfer has been suspended. For example, if a policy violation was detected..
 
-### TransferCompleteMessage
+### TransferProcessEventMessage:complete
 
 #### Description
 
-The _TransferCompleteMessage_ is sent by the provider or consumer when asset transfer has completed. Note that some data plane implementations may optimize completion notification
+The _TransferProcessEventMessage:complete_ is sent by the provider or consumer when asset transfer has completed. Note that some data plane implementations may optimize completion notification
 by performing it as part of its wire protocol. In those cases, a _TransferCompleteMessage_ message does not need to be sent.
 
 ### TransferProcessTerminationMessage

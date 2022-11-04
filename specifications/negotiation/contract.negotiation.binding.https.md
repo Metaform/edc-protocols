@@ -109,7 +109,7 @@ Location: /negotiations/urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3
 }
 ```
 
-Note that if the location header is an absolute URL, it must resolve to an address that is relative to the base address of the request.
+Note that if the location header is not an absolute URL, it must resolve to an address that is relative to the base address of the request.
 
 ### 2.6 The provider `negotiations/:id/request` resource
 

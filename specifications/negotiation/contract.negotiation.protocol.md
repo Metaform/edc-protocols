@@ -127,15 +127,15 @@ A provider responds with an error if the signature can't be validated or is inco
 
 #### Description
 
-When the _ContractNegotiationEventMessage_ is sent by a provider with an `eventType` property set to `finalize`, a contract agreement has been finalized and the associated asset
+When the _ContractNegotiationEventMessage_ is sent by a provider with an `eventType` property set to `finalized`, a contract agreement has been finalized and the associated asset
 is accessible. The state machine is transitioned to the PROVIDER_FINALIZED state. Other event types may be defined in the future. A consumer responds with an error if the signature
 can't be validated or is incorrect.
 
-It is an error for a consumer to send a ContractNegotiationEventMessage with an eventType `finalize` to the provider.
+It is an error for a consumer to send a ContractNegotiationEventMessage with an eventType `finalized` to the provider.
 
-When the _ContractNegotiationEventMessage_ is sent by a consumer with an `eventType` set to  `accept`, the state machine is placed in the CONSUMER_AGREED state.
+When the _ContractNegotiationEventMessage_ is sent by a consumer with an `eventType` set to  `accepted`, the state machine is placed in the CONSUMER_AGREED state.
 
-It is an error for a provider to send a ContractNegotiationEventMessage with an eventType `accept` to the consumer.
+It is an error for a provider to send a ContractNegotiationEventMessage with an eventType `accepted` to the consumer.
 
 Note that contract events are not intended for propagation of agreement state after a contract negotiation has entered a terminal state. It is considered an error for a consumer or
 provider to send a contract negotiation event after the negotiation state machine has entered a terminal state.

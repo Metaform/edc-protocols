@@ -7,10 +7,10 @@ hide empty description
 
 state CONSUMER_REQUESTED: <color:$darkGray>ContractRequestMessage
 state PROVIDER_OFFERED: <color:$darkGray>ContractOfferMessage
-state CONSUMER_AGREED: <color:$darkGray>ContractNegotiationEventMessage:accept
+state CONSUMER_AGREED: <color:$darkGray>ContractNegotiationEventMessage:accepted
 state PROVIDER_AGREED: <color:$darkGray>ContractAgreementMessage
 state CONSUMER_VERIFIED: <color:$darkGray>ContractAgreementVerificationMessage
-state PROVIDER_FINALIZED: <color:$darkGray>ContractNegotiationEventMessage:finalize
+state PROVIDER_FINALIZED: <color:$darkGray>ContractNegotiationEventMessage:finalized
 
 state TERMINATED $lightRed #$borderRed:  <color:$darkGray>ContractNegotiationTerminationMessage
 

@@ -42,8 +42,8 @@ producer begins data transmission to an endpoint specified by the consumer using
 
 #### Pull Transfer
 
-A pull transfer is when the consumer data plane initiates retrieval of asset data from a producer endpoint. For example, after the consumer has issued an `AssetReadyMessage,`
-the consumer requests the data from the producer-specified endpoint.
+A pull transfer is when the consumer data plane initiates retrieval of asset data from a producer endpoint. For example, after the consumer has issued an `TransferProcessStart,`
+message, the consumer requests the data from the producer-specified endpoint.
 
 << Include example diagram >>
 
@@ -58,8 +58,7 @@ non-finite data, a TP will continue indefinitely until either the consumer or pr
 The TP states are:
 
 - **CONSUMER_REQUESTED** - An asset has been requested under an `Agreement` by the consumer and the provider has sent an ACK response.
-- **READIED** - An asset is available for access to the consumer.
-- **STARTED** - The producer has begun pushing the asset to the consumer endpoint.
+- **STARTED** - The asset is available for access by the consumer or the producer has begun pushing the asset to the consumer endpoint.
 - **COMPLETED** - The transfer has been completed by either the consumer or the producer.
 - **SUSPENDED** - The transfer has been suspended by the producer.
 - **TERMINATED** - The transfer process has been terminated by the consumer or the producer.
@@ -95,7 +94,7 @@ The _AssetRequestMessage_ is sent by a consumer to initiate a transfer process.
 
 Providers should implement idempotent behavior for AssetRequestMessage based on the value of `@id`. Providers may choose to implement idempotent behavior for a certain period of
 time. For example, until a transfer processes has completed and been archived after an implementation-specific expiration period. If a request for the given `@id` has already been
-received *and* the same consumer sent the original message, the provider should respond with an appropriate _DataAddressMessage_. 
+received *and* the same consumer sent the original message, the provider should respond with an appropriate _DataAddressMessage_.
 
 Once a transfer process have been created, all associated callback messages must include a `correlationId` set to the _AssetRequestMessage_ `@id` value.
 
@@ -105,33 +104,13 @@ Providers must include a `correlationId` property in the `TransferProcessMessage
 
 - The 'dataAddress' contains a transport-specific endpoint address for pushing the asset. It may include a temporary authorization token.
 
-### DataAddressMessage
-
-**Sent by**: Provider
-
-**Resulting State**: READIED
-
-**Example**: [DataAddressMessage](./message/data.address.message.json)
-
-**Response**: ACK or ERROR.
-
-**Schema**: (xx)[]
-
-#### Description
-
-The _DataAddressMessage_ is sent by the provider to indicate the asset is ready for retrieval by the client.
-
-#### Notes
-
-- The 'dataAddress' contains a transport-specific endpoint address for obtaining the asset. It may include a temporary authorization token.
-
-### TransferProcessEventMessage:started
+### TransferProcessStart
 
 **Sent by**: Provider
 
 **Resulting State**: STARTED
 
-**Example**: [TransferProcessEventMessage:started](./message/transfer.process.event.message.json)
+**Example**: [TransferProcessStart](./message/transfer.process.start.message.json)
 
 **Response**: ACK or ERROR.
 
@@ -139,7 +118,12 @@ The _DataAddressMessage_ is sent by the provider to indicate the asset is ready 
 
 #### Description
 
-The _TransferProcessEventMessage:started_ is sent by the provider to indicate the asset transfer has been initiated.
+The _TransferProcessStart_ is sent by the provider to indicate the asset transfer has been initiated.
+
+#### Notes
+
+- The 'dataAddress' is only provided if the current transfer is a pull transfer and contains a transport-specific endpoint address for obtaining the asset. It may include a
+  temporary authorization token.
 
 ### TransferSuspensionMessage
 
@@ -147,13 +131,12 @@ The _TransferProcessEventMessage:started_ is sent by the provider to indicate th
 
 The _TransferSuspensionMessage_ is sent by the provider to indicate that the asset transfer has been suspended. For example, if a policy violation was detected..
 
-### TransferProcessEventMessage:completed
+### TransferProcessCompletionMessage
 
 #### Description
 
-The _TransferProcessEventMessage:completed_ is sent by the provider or consumer when asset transfer has completed. Note that some data plane implementations may optimize completion
-notification
-by performing it as part of its wire protocol. In those cases, a _TransferProcessEventMessage:completed_ message does not need to be sent.
+The _TransferProcessCompletionMessage_ is sent by the provider or consumer when asset transfer has completed. Note that some data plane implementations may optimize completion
+notification by performing it as part of its wire protocol. In those cases, a _TransferProcessCompletionMessage_ message does not need to be sent.
 
 ### TransferProcessTerminationMessage
 

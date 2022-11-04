@@ -6,22 +6,17 @@
 hide empty description
 
 state CONSUMER_REQUESTED: <color:$darkGray>AssetRequestMessage
-state READIED: <color:$darkGray>DataAddressMessage
-state STARTED: <color:$darkGray>TransferProcessEventMessage:started
-state COMPLETED: <color:$darkGray>TransferProcessEventMessage:completed
+state STARTED: <color:$darkGray>TransferProcessStartMessage
+state COMPLETED: <color:$darkGray>TransferProcessCompletionMessage
 state SUSPENDED: <color:$darkGray>TransferSuspensionMessage
 
 state TERMINATED $lightRed #$borderRed : <color:$darkGray>TransferProcessTerminationMessage
 
 [*] --> CONSUMER_REQUESTED: C
-CONSUMER_REQUESTED -->  READIED: P
 CONSUMER_REQUESTED -->  STARTED: P
-READIED -->  COMPLETED: C
-STARTED -->  COMPLETED: P
+STARTED -->  COMPLETED: P/C
 STARTED -->  SUSPENDED: P
-READIED -->  SUSPENDED: P
 SUSPENDED --> STARTED: P
-SUSPENDED --> READIED: P
 COMPLETED -->[*]
 
 TERMINATED --> [*]

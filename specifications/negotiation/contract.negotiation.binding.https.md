@@ -31,6 +31,11 @@ a [ContractNegotiationErrorMessage](./message/contract.negotiation.error.message
 If a client or provider connector makes a request that results in an invalid contract negotiation state transition as defined by the Contract Negotiation Protocol, it must return
 an HTTP code 400 (Bad Request) with an NegotiationErrorMessage in the response body.
 
+### 2.3 Authorization
+
+All requests should use the `Authorizartion` header to include authorization data as specified by an authorization protocol such as [OAuth2](https://www.rfc-editor.org/rfc/rfc6749)
+. The `Authorization` HTTP header is optional if the connector does not require authorization. This specification does not mandate the use of a particular authorization standard.
+
 ### 2.4 The provider `negotiations` resource
 
 #### 2.4.1 GET
@@ -81,9 +86,6 @@ Authorization: ...
   "callbackAddress": "https://......"
 }
 ```
-
-The `Authorization` header is optional if the contract negotiation service does not require authorization. If present, the contents of the `Authorization` header are detailed in
-the [Authorization section](#authorization).
 
 The `callbackAddress` property specifies the base endpoint `URL` where the client receives messages associated with the contract negotiation. Support for the `HTTPS` scheme is
 required. Implementations may optionally support other URL schemes.

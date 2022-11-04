@@ -69,7 +69,7 @@ The TP states are:
 
 ## Message Types
 
-### AssetRequestMessage
+### 1. AssetRequestMessage
 
 **Sent by**: Consumer
 
@@ -104,7 +104,7 @@ Providers must include a `correlationId` property in the `TransferProcessMessage
 
 - The 'dataAddress' contains a transport-specific endpoint address for pushing the asset. It may include a temporary authorization token.
 
-### TransferProcessStart
+### 2. TransferProcessStart
 
 **Sent by**: Provider
 
@@ -125,20 +125,20 @@ The _TransferProcessStart_ is sent by the provider to indicate the asset transfe
 - The 'dataAddress' is only provided if the current transfer is a pull transfer and contains a transport-specific endpoint address for obtaining the asset. It may include a
   temporary authorization token.
 
-### TransferSuspensionMessage
+### 3. TransferSuspensionMessage
 
 #### Description
 
 The _TransferSuspensionMessage_ is sent by the provider to indicate that the asset transfer has been suspended. For example, if a policy violation was detected..
 
-### TransferProcessCompletionMessage
+### 4. TransferProcessCompletionMessage
 
 #### Description
 
 The _TransferProcessCompletionMessage_ is sent by the provider or consumer when asset transfer has completed. Note that some data plane implementations may optimize completion
 notification by performing it as part of its wire protocol. In those cases, a _TransferProcessCompletionMessage_ message does not need to be sent.
 
-### TransferProcessTerminationMessage
+### 5. TransferProcessTerminationMessage
 
 #### Description
 

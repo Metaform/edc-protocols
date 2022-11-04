@@ -265,7 +265,7 @@ Authorization: ...
 #### 3.4.1 POST
 
 A provider can POST a [ContractNegotiationEventMessage](./message/contract.negotiation.event.message.json) to the `negotiations/:id/events` callback with an `eventType`
-of `finalize` to finalize a contract agreement. If the negotiation state is successfully transitioned, the consumer must return HTTP code 200 (OK). The response body is not
+of `finalized` to finalize a contract agreement. If the negotiation state is successfully transitioned, the consumer must return HTTP code 200 (OK). The response body is not
 specified and clients are not required to process it. 
 
 

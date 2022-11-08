@@ -125,11 +125,11 @@ The _TransferProcessStart_ is sent by the provider to indicate the asset transfe
 - The 'dataAddress' is only provided if the current transfer is a pull transfer and contains a transport-specific endpoint address for obtaining the asset. It may include a
   temporary authorization token.
 
-### 3. TransferSuspensionMessage
+### 3. TransferProcessSuspensionMessage
 
 #### Description
 
-The _TransferSuspensionMessage_ is sent by the provider to indicate that the asset transfer has been suspended. For example, if a policy violation was detected..
+The _TransferProcessSuspensionMessage_ is sent by the provider to indicate that the asset transfer has been suspended. For example, if a policy violation was detected..
 
 ### 4. TransferProcessCompletionMessage
 

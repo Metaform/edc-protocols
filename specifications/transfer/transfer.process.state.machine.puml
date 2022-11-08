@@ -8,7 +8,7 @@ hide empty description
 state CONSUMER_REQUESTED: <color:$darkGray>AssetRequestMessage
 state STARTED: <color:$darkGray>TransferProcessStartMessage
 state COMPLETED: <color:$darkGray>TransferProcessCompletionMessage
-state SUSPENDED: <color:$darkGray>TransferSuspensionMessage
+state SUSPENDED: <color:$darkGray>TransferProcessSuspensionMessage
 
 state TERMINATED $lightRed #$borderRed : <color:$darkGray>TransferProcessTerminationMessage
 

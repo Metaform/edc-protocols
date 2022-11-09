@@ -119,19 +119,33 @@ the [TransferProcess](./message/transfer.process.json) message:
 
 Note that if the location header is not an absolute URL, it must resolve to an address that is relative to the base address of the request.
 
-### 2.6 The provider `transfer-processes/:id/completion` resource
+### 2.6 The provider `transfer-processes/:id/start` resource
 
 #### 2.6.1 POST
+
+The consumer connector can POST a [TransferStartMessage](./message/transfer.start.message.json) to attempt to start a transfer process after it has been suspended. If the transfer
+process state is successfully transitioned, the producer must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
+
+### 2.7 The provider `transfer-processes/:id/completion` resource
+
+#### 2.7.1 POST
 
 The consumer connector can POST a [TransferCompletionMessage](./message/transfer.completion.message.json) to complete a transfer process. If the transfer
 process state is successfully transitioned, the provider must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
 
-### 2.7 The provider `transfer-processes/:id/termination` resource
+### 2.8 The provider `transfer-processes/:id/termination` resource
 
-#### 2.7.1 POST
+#### 2.8.1 POST
 
 The consumer connector can POST a [TransferTerminationMessage](./message/transfer.termination.message.json) to terminate a transfer process. If the transfer
 process state is successfully transitioned, the provider must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
+
+### 2.9 The provider `transfer-processes/:id/suspension` resource
+
+#### 2.9.1 POST
+
+The consumer connector can POST a [TransferSuspensionMessage](./message/transfer.suspension.message.json) to suspend a transfer process. If the transfer
+process state is successfully transitioned, the producer must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
 
 ## 3 Consumer Callback Path Bindings
 
@@ -145,7 +159,7 @@ be `https://connector.consumer.com/callback/transfer-processes/:id/start`.
 
 #### 3.2.1 POST
 
-The provider connector can POST a [TransferStartMessage](./message/transfer.start.message.json) to indicte the start of a transfer process. If the transfer
+The provider connector can POST a [TransferStartMessage](./message/transfer.start.message.json) to indicate the start of a transfer process. If the transfer
 process state is successfully transitioned, the consumer must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it.
 
 ### 3.3 The consumer `transfer-processes/:id/completion` resource
@@ -166,5 +180,5 @@ process state is successfully transitioned, the consumer must return HTTP code 2
 
 #### 3.5.1 POST
 
-The provider connector can POST a [TransferTerminationMessage](./message/transfer.process.termination.message.json) to suspend a transfer process. If the transfer
+The provider connector can POST a [TransferSuspensionMessage](./message/transfer.suspension.message.json) to suspend a transfer process. If the transfer
 process state is successfully transitioned, the consumer must return HTTP code 200 (OK). The response body is not specified and clients are not required to process it. 

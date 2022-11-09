@@ -60,7 +60,7 @@ The TP states are:
 - **REQUESTED** - An asset has been requested under an `Agreement` by the consumer and the provider has sent an ACK response.
 - **STARTED** - The asset is available for access by the consumer or the producer has begun pushing the asset to the consumer endpoint.
 - **COMPLETED** - The transfer has been completed by either the consumer or the producer.
-- **SUSPENDED** - The transfer has been suspended by the producer.
+- **SUSPENDED** - The transfer has been suspended by the consumer or the producer.
 - **TERMINATED** - The transfer process has been terminated by the consumer or the producer.
 
 ### Transfer Process State Machine

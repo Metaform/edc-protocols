@@ -125,20 +125,14 @@ The _TransferProcessStart_ is sent by the provider to indicate the asset transfe
 - The 'dataAddress' is only provided if the current transfer is a pull transfer and contains a transport-specific endpoint address for obtaining the asset. It may include a
   temporary authorization token.
 
-### 3. TransferTerminationMessage
-
-#### Description
-
-The _TransferTerminationMessage_ is sent by the provider to indicate that the asset transfer has been suspended. For example, if a policy violation was detected..
-
-### 4. TransferCompletionMessage
+### 3. TransferCompletionMessage
 
 #### Description
 
 The _TransferCompletionMessage_ is sent by the provider or consumer when asset transfer has completed. Note that some data plane implementations may optimize completion
 notification by performing it as part of its wire protocol. In those cases, a _TransferCompletionMessage_ message does not need to be sent.
 
-### 5. TransferTerminationMessage
+### 4. TransferTerminationMessage
 
 #### Description
 

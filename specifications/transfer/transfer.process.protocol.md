@@ -104,13 +104,13 @@ Providers must include a `correlationId` property in the `TransferProcessMessage
 
 - The 'dataAddress' contains a transport-specific endpoint address for pushing the asset. It may include a temporary authorization token.
 
-### 2. TransferProcessStart
+### 2. TransferStartMessage
 
 **Sent by**: Provider
 
 **Resulting State**: STARTED
 
-**Example**: [TransferProcessStart](./message/transfer.process.start.message.json)
+**Example**: [TransferStartMessage](./message/transfer.process.start.message.json)
 
 **Response**: ACK or ERROR.
 
@@ -118,7 +118,7 @@ Providers must include a `correlationId` property in the `TransferProcessMessage
 
 #### Description
 
-The _TransferProcessStart_ is sent by the provider to indicate the asset transfer has been initiated.
+The _TransferStartMessage_ is sent by the provider to indicate the asset transfer has been initiated.
 
 #### Notes
 

@@ -35,7 +35,7 @@ Asset transfers are characterized as `push` or `pull` transfers and asset data i
 
 #### Push Transfer
 
-A push transfer is when the producer data plane initiates sending of asset data to a consumer endpoint. For example, after the consumer has issued an `AssetRequestMessage,` the
+A push transfer is when the producer data plane initiates sending of asset data to a consumer endpoint. For example, after the consumer has issued an `TransferRequestMessage,` the
 producer begins data transmission to an endpoint specified by the consumer using an agreed-upon wire protocol.
 
 << Include example diagram >>
@@ -57,10 +57,10 @@ non-finite data, a TP will continue indefinitely until either the consumer or pr
 
 The TP states are:
 
-- **CONSUMER_REQUESTED** - An asset has been requested under an `Agreement` by the consumer and the provider has sent an ACK response.
+- **REQUESTED** - An asset has been requested under an `Agreement` by the consumer and the provider has sent an ACK response.
 - **STARTED** - The asset is available for access by the consumer or the producer has begun pushing the asset to the consumer endpoint.
 - **COMPLETED** - The transfer has been completed by either the consumer or the producer.
-- **SUSPENDED** - The transfer has been suspended by the producer.
+- **SUSPENDED** - The transfer has been suspended by the consumer or the producer.
 - **TERMINATED** - The transfer process has been terminated by the consumer or the producer.
 
 ### Transfer Process State Machine
@@ -69,13 +69,13 @@ The TP states are:
 
 ## Message Types
 
-### 1. AssetRequestMessage
+### 1. TransferRequestMessage
 
 **Sent by**: Consumer
 
-**Resulting State**: CONSUMER_REQUESTED
+**Resulting State**: REQUESTED
 
-**Example**: [AssetRequestMessage](./message/asset.request.message.json)
+**Example**: [TransferRequestMessage](./message/transfer.request.message.json)
 
 **Response**: [TransferProcess](./message/transfer.process.json) containing the transfer process id or ERROR.
 
@@ -83,7 +83,7 @@ The TP states are:
 
 #### Description
 
-The _AssetRequestMessage_ is sent by a consumer to initiate a transfer process.
+The _TransferRequestMessage_ is sent by a consumer to initiate a transfer process.
 
 #### Notes
 
@@ -92,25 +92,25 @@ The _AssetRequestMessage_ is sent by a consumer to initiate a transfer process.
 - The `dataAddress` property must only be provided if the `dct:format` requires a push transfer.
 - `callbackAddress` is a URI indicating where messages to the consumer should be sent. If the address is not understood, the provider MUST return an UNRECOVERABLE error.
 
-Providers should implement idempotent behavior for AssetRequestMessage based on the value of `@id`. Providers may choose to implement idempotent behavior for a certain period of
+Providers should implement idempotent behavior for TransferRequestMessage based on the value of `@id`. Providers may choose to implement idempotent behavior for a certain period of
 time. For example, until a transfer processes has completed and been archived after an implementation-specific expiration period. If a request for the given `@id` has already been
 received *and* the same consumer sent the original message, the provider should respond with an appropriate _DataAddressMessage_.
 
-Once a transfer process have been created, all associated callback messages must include a `correlationId` set to the _AssetRequestMessage_ `@id` value.
+Once a transfer process have been created, all associated callback messages must include a `correlationId` set to the _TransferRequestMessage_ `@id` value.
 
-Providers must include a `correlationId` property in the `TransferProcessMessage` with a value set to the `@id` of the corresponding _AssetRequestMessage_
+Providers must include a `correlationId` property in the `TransferProcessMessage` with a value set to the `@id` of the corresponding _TransferRequestMessage_
 
 #### Notes
 
 - The 'dataAddress' contains a transport-specific endpoint address for pushing the asset. It may include a temporary authorization token.
 
-### 2. TransferProcessStart
+### 2. TransferStartMessage
 
 **Sent by**: Provider
 
 **Resulting State**: STARTED
 
-**Example**: [TransferProcessStart](./message/transfer.process.start.message.json)
+**Example**: [TransferStartMessage](./message/transfer.process.start.message.json)
 
 **Response**: ACK or ERROR.
 
@@ -118,29 +118,23 @@ Providers must include a `correlationId` property in the `TransferProcessMessage
 
 #### Description
 
-The _TransferProcessStart_ is sent by the provider to indicate the asset transfer has been initiated.
+The _TransferStartMessage_ is sent by the provider to indicate the asset transfer has been initiated.
 
 #### Notes
 
 - The 'dataAddress' is only provided if the current transfer is a pull transfer and contains a transport-specific endpoint address for obtaining the asset. It may include a
   temporary authorization token.
 
-### 3. TransferProcessSuspensionMessage
+### 3. TransferCompletionMessage
 
 #### Description
 
-The _TransferProcessSuspensionMessage_ is sent by the provider to indicate that the asset transfer has been suspended. For example, if a policy violation was detected..
+The _TransferCompletionMessage_ is sent by the provider or consumer when asset transfer has completed. Note that some data plane implementations may optimize completion
+notification by performing it as part of its wire protocol. In those cases, a _TransferCompletionMessage_ message does not need to be sent.
 
-### 4. TransferProcessCompletionMessage
-
-#### Description
-
-The _TransferProcessCompletionMessage_ is sent by the provider or consumer when asset transfer has completed. Note that some data plane implementations may optimize completion
-notification by performing it as part of its wire protocol. In those cases, a _TransferProcessCompletionMessage_ message does not need to be sent.
-
-### 5. TransferProcessTerminationMessage
+### 4. TransferTerminationMessage
 
 #### Description
 
-The _TransferProcessTerminationMessage_ is sent by the provider or consumer at any point except a terminal state to indicate the data transfer process should stop and be placed in
+The _TransferTerminationMessage_ is sent by the provider or consumer at any point except a terminal state to indicate the data transfer process should stop and be placed in
 a terminal state. If the termination was due to an error, the sender may include error information. 

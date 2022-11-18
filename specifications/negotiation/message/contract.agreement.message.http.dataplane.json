@@ -1,0 +1,72 @@
+{
+  "@context": {
+    "ids": "https://w3id.org/idsa/core/",
+    "idsc": "https://w3id.org/idsa/code/",
+    "odrl": "http://www.w3.org/ns/odrl/2/",
+    "xsd:": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@id": "some-id",
+  "@type": [ "https://www.w3.org/2018/credentials#VerifiableCredential", "ids:ContractAgreementMessage"],
+  "ids:negotiationId": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
+  "https://www.w3.org/2018/credentials#issuer": { "@id": "http://provider.com/edc" },
+  "https://www.w3.org/2018/credentials#issuanceDate": { 
+    "@type": "xsd:dateTime",
+    "@value": "2022-11-18T13:00:00.000Z"
+  },
+  "https://www.w3.org/2018/credentials#credentialSubject": {
+    
+    "@type": [ "https://www.w3.org/2018/credentials#VerifiableCredential", "ids:ConsumerSignedAgreement"],
+    "https://www.w3.org/2018/credentials#issuer": { "@id": "http://consumer.com/edc" },
+    "https://www.w3.org/2018/credentials#issuanceDate": { 
+      "@type": "xsd:dateTime",
+      "@value": "2022-11-18T12:00:00.000Z"
+    },
+    "https://www.w3.org/2018/credentials#credentialSubject": {
+
+      "@type": "odrl:Agreement",
+      "@id": "some-other-id",
+      "odrl:uid": "some-other-id",
+      "odrl:target": { "@id": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88" },
+      "odrl:permission": {
+        "@id": "some-permission-id",
+        "odrl:uid": "some-permission-id",
+        "odrl:action": { "@id": "odrl:use" },
+        "odrl:constraint": {
+          "odrl:leftOperand": { "@id": "idsc:DATA_PLANE" },
+          "odrl:operand": { "@id": "odrl:equals" },
+          "oderl:rightOperand": { "@id": "idsc:HTTP_DATA_PLANE" }
+        }
+      },
+      "odrl:duty": {
+        "@id": "some-permission-id",
+        "odrl:uid": "some-permission-id",
+        "odrl:action": { "@id": "odrl:use" },
+        "odrl:constraint": {
+          "odrl:leftOperand": { "@id": "idsc:DATA_PLANE" },
+          "odrl:operand": { "@id": "odrl:equals" },
+          "oderl:rightOperand": { "@id": "idsc:HTTP_DATA_PLANE" }
+        }
+      }
+    },
+    "https://w3id.org/security#proof": {
+        "@type": "https://w3id.org/security#Ed25519Signature2018",
+        "http://purl.org/dc/terms/created": { 
+          "@type": "xsd:dateTime",
+          "@value": "2022-11-18T12:00:01Z"
+        },
+        "https://w3id.org/security#jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..8YIj2tG6HoiDKw476_ElxcCFiCTr89jHX24Osr1zgklp0Sgfkgx-ipu6Li5og4wtLGMoa7__xJpcHWHzwWZoCQ",
+        "https://w3id.org/security#proofPurpose": "assertionMethod",
+        "https://w3id.org/security#verificationMethod": "idsc:DAPS_ATTRIBUTE_PUBLIC_KEY"
+    }
+  },
+  "https://w3id.org/security#proof": {
+      "@type": "https://w3id.org/security#Ed25519Signature2018",
+      "http://purl.org/dc/terms/created":{ 
+        "@type": "xsd:dateTime",
+        "@value": "2022-11-18T13:00:01Z"
+      },
+      "https://w3id.org/security#jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..8YIj2tG6HoiDKw476_ElxcCFiCTr89jHX24Osr1zgklp0Sgfkgx-ipu6Li5og4wtLGMoa7__xJpcHWHzwWZoCQ",
+      "https://w3id.org/security#proofPurpose": "assertionMethod",
+      "https://w3id.org/security#verificationMethod": "idsc:DAPS_ATTRIBUTE_PUBLIC_KEY"
+  }
+}

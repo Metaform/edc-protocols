@@ -1,0 +1,74 @@
+{
+    "@context": {
+        "dact": "http://www.w3.org/ns/dcat#",
+        "ids": "https://w3id.org/idsa/core/",
+        "idsc": "https://w3id.org/idsa/code/",
+        "odrl": "http://www.w3.org/ns/odrl/2/",
+        "xsd:": "http://www.w3.org/2001/XMLSchema#",
+        "foaf": "http://xmlns.com/foaf/0.1/",
+        "dct": "http://purl.org/dc/terms/"
+    },
+    "@id": "http://provider.com/catalog1/dataset1/",
+    "@type": "dcat:Dataset",
+    "dct:title" : "IDS Data Asset #1",
+    "dct:description": [ {
+        "@language": "en",
+        "@value": "This is the number 1 data asset of the IDS."
+    }, {
+        "@language": "de",
+        "@value": "Dies ist das Nummer 1 Data Asset im IDS."
+    } ],
+    "dcat:keyword": [
+        "IDS",
+        "data asset",
+        "dcat dataset"
+    ],
+    "dcat:distribution": [ {
+        "@type": "dcat:Distribution",
+        "dct:title" : "Distribution#1",
+        "dct:description": "This is a distribution everyone can see.",
+        "dcat:keyword": [
+            "dataplane",
+            "public",
+            "distribution"
+        ],
+        "dct:accessURL": {
+            "@type": "xsd:anyURI",
+            "@value": "https://provider.com/edc/http-dataplane/data"
+        }
+    }, {
+        "@type": "dcat:Distribution",
+        "dct:title" : "Distribution#2",
+        "dct:description": "This is another distribution, which everyone can see.",
+        "dcat:keyword": [
+            "dataplane",
+            "public",
+            "distribution"
+        ],
+        "dct:accessURL": {
+            "@type": "xsd:anyURI",
+            "@value": "https://provider.com/edc/s3/"
+        }
+    }, {
+        "@type": "dcat:Distribution",
+        "dct:title" : "Distribution#3",
+        "dct:description": "This is a secret distribution only for my most important customers.",
+        "dcat:keyword": [
+            "dataplane",
+            "secret",
+            "iot"
+        ],
+        "dct:accessURL": {
+            "@type": "xsd:anyURI",
+            "@value": "https://provider.com/edc/iot/"
+        },
+        "ids:hasPolicy": {
+            "@type": "odrl:Offer",
+            ...
+        }
+    } ],
+    "ids:hasPolicy": {
+        "@type": "odrl:Offer",
+        ...
+    }
+}

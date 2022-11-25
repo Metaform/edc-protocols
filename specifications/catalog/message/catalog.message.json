@@ -60,9 +60,7 @@
       "dcat:distribution": [
         {
           "@type": "dcat:Distribution",
-          "dct:format": {
-            "@id": "ids:s3+push"
-          },
+          "dct:format": "ids:s3+push",
           "dcat:accessService": "urn:uuid:4aa2dcc8-4d2d-569e-d634-8394a8834d77"
         }
       ]

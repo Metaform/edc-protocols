@@ -5,27 +5,20 @@
 
 hide empty description
 
-state REQUESTED: <color:$darkGray>AssetRequestMessage
-state AVAILABLE: <color:$darkGray>AssetAvailableMessage
-state IN_PROGRESS: <color:$darkGray>TransferInProgressMessage
-state COMPLETED: <color:$darkGray>TransferCompletedMessage
-state SUSPENDED: <color:$darkGray>TransferSuspendedMessage
+state REQUESTED: <color:$darkGray>TransferRequestMessage
+state STARTED: <color:$darkGray>TransferStartMessage
+state COMPLETED: <color:$darkGray>TransferCompletionMessage
+state SUSPENDED: <color:$darkGray>TransferSuspensionMessage
 
-state ERROR $lightRed #$borderRed : <color:$darkGray>ErrorMessage
-state CANCELLED $lightGray #$darkGray : <color:$darkGray>TransferCancelMessage
+state TERMINATED $lightRed #$borderRed : <color:$darkGray>TransferTerminationMessage
 
 [*] --> REQUESTED: C
-REQUESTED -->  AVAILABLE: P
-REQUESTED -->  IN_PROGRESS: P
-AVAILABLE -->  COMPLETED: C
-IN_PROGRESS -->  COMPLETED: P
-IN_PROGRESS -->  SUSPENDED: P
-AVAILABLE -->  SUSPENDED: P
-SUSPENDED --> IN_PROGRESS: P
-SUSPENDED --> AVAILABLE: P
+REQUESTED -->  STARTED: P
+STARTED -->  COMPLETED: P/C
+STARTED -->  SUSPENDED: P/C
+SUSPENDED --> STARTED: P/C
 COMPLETED -->[*]
 
-ERROR --> [*]
-CANCELLED --> [*]
+TERMINATED --> [*]
 
 @enduml

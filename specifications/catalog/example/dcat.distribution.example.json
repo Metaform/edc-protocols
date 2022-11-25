@@ -1,13 +1,5 @@
 {
-    "@context": {
-        "dact": "http://www.w3.org/ns/dcat#",
-        "ids": "https://w3id.org/idsa/core/",
-        "idsc": "https://w3id.org/idsa/code/",
-        "odrl": "http://www.w3.org/ns/odrl/2/",
-        "xsd:": "http://www.w3.org/2001/XMLSchema#",
-        "foaf": "http://xmlns.com/foaf/0.1/",
-        "dct": "http://purl.org/dc/terms/"
-    },
+    "@context":  "https://w3id.org/idsa/v5/context.json",
     "@id": "http://provider.com/catalog1/dataset1/",
     "@type": "dcat:Dataset",
     "dct:title" : "IDS Dataset #1",

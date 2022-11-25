@@ -80,7 +80,7 @@ to `transfer-processes/request`:
 {
   "@context": {
     "ids": "https://idsa.org/",
-    "dct": "http://purl.org/dc/terms/"
+    "dct": "dct:"
   },
   "@id": "urn:uuid:4a3ad65e-d78a-4200-a666-fc47aec32f2f",
   "@type": "ids:TransferRequestMessage",

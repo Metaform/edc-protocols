@@ -26,9 +26,7 @@ Future IDS specifications may define additional optional serialization formats.
 
 ```
 {
-  "@context: {
-     "ids": "https://idsa.org/"
-   },
+  "@context": "https://w3id.org/idsa/v5/context.json",
   "@type": "ids:CatalogRequest"
   "ids:filter": {}
 }

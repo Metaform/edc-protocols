@@ -1,7 +1,5 @@
 {
-  "@context": {
-    "ids": "https://idsa.org/"
-  },
+  "@context":  "https://w3id.org/idsa/v5/context.json",
   "@type": "ids:CatalogRequestMessage",
   "ids:filter": {}
 }

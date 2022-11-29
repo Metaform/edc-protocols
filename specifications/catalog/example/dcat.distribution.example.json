@@ -5,26 +5,39 @@
     "dct:title" : "IDS Dataset #1",
     "dct:description": [ {
         "@language": "en",
-        "@value": "This is the number 1 data asset of the IDS. The consumer must be a TRUST_PLUS certfified connector."
+        "@value": "This is the number 1 data asset of the IDS. The consumer must be a TRUST_PLUS certified connector."
     }, {
         "@language": "de",
-        "@value": "Dies ist das Nummer 1 Data Asset im IDS. Der Consumer muss ein TRUST_PLUS zertifizierter Connetor sein."
+        "@value": "Dies ist das Nummer 1 Data Asset im IDS. Der Consumer muss ein TRUST_PLUS zertifizierter Connector sein."
     } ],
     "dcat:keyword": [
-        "IDS",
-        "data asset",
-        "dcat dataset"
+        "high value data",
+        "example"
     ],
+    "dcat:hasPolicy": {
+        "@type": "odrl:Offer",
+        "@id": "https://provider.com/edc/offer/1",
+        "odrl:permission": [ {
+            "odrl:action": {"@id": "odrl:use"},
+            "odrl:constraint" : [ {
+                "odrl:leftOperand": "idsc:SECURITY_PROFILE",
+                "odrl:operand": "odrl:equals",
+                "odrl:rightOperand": "idsc:TRUST_PLUS"
+            } ]
+        } ],
+        "odrl:prohibition": [ {
+            "odrl:action": {"@id": "odrl:distribute"}
+        } ]
+    },
     "dcat:distribution": [ {
         "@type": "dcat:Distribution",
         "dct:title" : "Distribution#1",
-        "dct:description": "This is a distribution which provides the data via a HTTP_REST dataplane.",
+        "dct:description": "This is a distribution which provides the data via a HTTP REST dataplane.",
         "dcat:keyword": [
-            "dataplane",
-            "public",
-            "distribution"
+            "HTTP",
+            "REST"
         ],
-        "ids:dataPlaneKind": {
+        "ids:transportType": {
             "@id": "idsc:HTTP_REST"
         },
         "dcat:accessService": [ {
@@ -45,11 +58,10 @@
         "dct:title" : "Distribution#2",
         "dct:description": "This is another distribution using a S3 dataplane.",
         "dcat:keyword": [
-            "dataplane",
-            "public",
-            "distribution"
+            "S3",
+            "public"
         ],
-        "ids:dataPlaneKind": {
+        "ids:transportType": {
             "@id": "idsc:S3"
         },
         "dcat:accessService": [ {
@@ -65,20 +77,5 @@
                 "@value": "https://provider.com/connector/transfer"
             }
         } ]
-    } ],
-    "dcat:hasPolicy": {
-        "@type": "odrl:Offer",
-        "@id": "https://provider.com/edc/offer/1",
-        "odrl:permission": [ {
-            "odrl:action": {"@id": "odrl:use"},
-            "odrl:constraint" : [ {
-                "odrl:leftOperand": "idsc:SECURITY_PROFILE",
-                "odrl:operand": "odrl:equals",
-                "odrl:rightOperand": "idsc:TRUST_PLUS"
-            } ]
-        } ],
-        "odrl:prohibition": [ {
-            "odrl:action": {"@id": "odrl:distribute"}
-        } ]
-    }
+    } ]
 }

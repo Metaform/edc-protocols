@@ -21,11 +21,10 @@
         "dct:title" : "Distribution#1",
         "dct:description": "This is a distribution everyone can see.",
         "dcat:keyword": [
-            "dataplane",
-            "public",
-            "distribution"
+            "HTTP",
+            "REST"
         ],
-        "ids:dataPlaneKind": {
+        "ids:transportType": {
             "@id": "idsc:HTTP_REST"
         },
         "dcat:hasPolicy": {
@@ -79,11 +78,10 @@
         "dct:title" : "Distribution#2",
         "dct:description": "This is another distribution.",
         "dcat:keyword": [
-            "dataplane",
-            "public",
-            "distribution"
+            "S3",
+            "public"
         ],
-        "ids:dataPlaneKind": {
+        "ids:transportType": {
             "@id": "idsc:S3"
         },
         "dcat:hasPolicy": {

@@ -1,14 +1,14 @@
 {
   "@context":  "https://w3id.org/idsa/v5/context.json",
   "@type": "ids:ContractAgreementVerificationMessage",
-  "ids:negotiationId": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
-  "cred:subject": { 
+  "ids:processId": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
+  "cred:subject": {
     "@type": "ids:ContractAgreementMessage",
     "ids:hash": "123abc456efgh"
   },
   "sec:proof": {
     "@type": "sec:Ed25519Signature2018",
-    "dct:created": { 
+    "dct:created": {
       "@type": "xsd:dateTime",
       "@value": "2022-11-18T12:00:01Z"
     },

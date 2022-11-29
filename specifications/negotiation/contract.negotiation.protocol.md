@@ -68,9 +68,9 @@ The _ContractRequestMessage_ is sent by a consumer to initiate a contract negoti
 
 #### Notes
 
-- The consumer must include either an `offer` or `offerId` property. If the message includes a `negotiationId` property, the request will be associated with an existing contract
-  negotiation and a consumer offer will be created using either the `offer` or `offerId` properties. If the message does not include a `negotiationId`, a new contract negotiation
-  will be created using either the `offer` or `offerId` properties and the provider selects an appropriate `negotiationId`.
+- The consumer must include either an `offer` or `offerId` property. If the message includes a `processId` property, the request will be associated with an existing contract
+  negotiation and a consumer offer will be created using either the `offer` or `offerId` properties. If the message does not include a `processId`, a new contract negotiation
+  will be created using either the `offer` or `offerId` properties and the provider selects an appropriate `processId`.
 
 - It is an error to include both an `offer` and `offerId` property.
 

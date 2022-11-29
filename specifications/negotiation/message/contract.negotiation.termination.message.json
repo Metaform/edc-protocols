@@ -3,7 +3,7 @@
     "ids": "https://idsa.org/"
   },
   "@type": "ids:ContractNegotiationTermination",
-  "negotiationId": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
+  "processId": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
   "code": "...",
   "reasons": [
     {},

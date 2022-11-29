@@ -59,9 +59,11 @@ the [TransferProcess](./message/transfer.process.json):
   "@id": "urn:uuid:71f8dfab-9337-4e9d-a4c7-524e04443f16",
   "@type": "ids:TransferProcess",
   "correlationId": "urn:uuid:4a3ad65e-d78a-4200-a666-fc47aec32f2f",
-  "state": "REQUESTED"
+  "state": "idsc:REQUESTED"
 } 
 ```
+
+Predefined states are: `idsc:REQUESTED`, `idsc:STARTED`, `idsc:SUSPENDED`, `idsc:REQUESTED`, `idsc:COMPLETED`, and `idsc:TERMINATED`.
 
 If the transfer process does not exist or the client is not authorized, the provider connector must return an HTTP 404 (Not Found) response.
 
@@ -112,7 +114,7 @@ the [TransferProcess](./message/transfer.process.json) message:
   "@id": "urn:uuid:71f8dfab-9337-4e9d-a4c7-524e04443f16",
   "@type": "ids:TransferProcess",
   "correlationId": "urn:uuid:4a3ad65e-d78a-4200-a666-fc47aec32f2f",
-  "state": "REQUESTED"
+  "state": "idsc:REQUESTED"
 }
 
  ```

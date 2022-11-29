@@ -28,7 +28,7 @@ In the event of a request error, the catalog service must return an appropriate 
 
 #### 2.3.1 POST
 
-The [CatalogRequestMessage](catalog.protocol.md#1-catalogrequestmessage) corresponds to `POST https://<base>/catalog/request`:
+The [CatalogRequestMessage](catalog.protocol.md#21-catalogrequestmessage) corresponds to `POST https://<base>/catalog/request`:
 
 ```
 POST https://provider.com/catalog/request
@@ -45,7 +45,7 @@ Authorization: ...
 ```
 
 The `Authorization` header is optional if the catalog service does not require authorization. If present, the contents of the `Authorization` header are detailed in the
-[Authorization section](#authorization).
+[Authorization section](#31-authorization).
 
 The `filter` property is optional. If present, the `filter` property can contain an implementation-specific filter expression or query to be executed as part of the catalog
 request.

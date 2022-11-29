@@ -69,7 +69,7 @@ If the transfer process does not exist or the client is not authorized, the prov
 
 #### 2.5.1 POST
 
-A transfer process is started and placed in the `REQUESTED` state when a consumer POSTs a [TransferRequestMessage](./transfer.process.protocol.md#TransferRequestMessage)
+A transfer process is started and placed in the `REQUESTED` state when a consumer POSTs a [TransferRequestMessage](./transfer.process.protocol.md#1-transferrequestmessage)
 to `transfer-processes/request`:
 
  ```

@@ -110,7 +110,7 @@ Providers must include a `correlationId` property in the `TransferProcessMessage
 
 **Resulting State**: STARTED
 
-**Example**: [TransferStartMessage](./message/transfer.process.start.message.json)
+**Example**: [TransferStartMessage](./message/transfer.start.message.json)
 
 **Response**: ACK or ERROR.
 

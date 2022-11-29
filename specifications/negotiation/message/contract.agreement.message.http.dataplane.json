@@ -2,17 +2,17 @@
   "@context":  "https://w3id.org/idsa/v5/context.json",
   "@id": "some-id",
   "@type": [ "cred:VerifiableCredential", "ids:ContractAgreementMessage"],
-  "ids:negotiationId": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
+  "ids:processId": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
   "cred:issuer": { "@id": "http://provider.com/edc" },
-  "cred:issuanceDate": { 
+  "cred:issuanceDate": {
     "@type": "xsd:dateTime",
     "@value": "2022-11-18T13:00:00.000Z"
   },
   "cred:credentialSubject": {
-    
+
     "@type": [ "cred:VerifiableCredential", "ids:ConsumerSignedAgreement"],
     "cred:issuer": { "@id": "http://consumer.com/edc" },
-    "cred:issuanceDate": { 
+    "cred:issuanceDate": {
       "@type": "xsd:dateTime",
       "@value": "2022-11-18T12:00:00.000Z"
     },
@@ -45,7 +45,7 @@
     },
     "sec:proof": {
         "@type": "sec:Ed25519Signature2018",
-        "dct:created": { 
+        "dct:created": {
           "@type": "xsd:dateTime",
           "@value": "2022-11-18T12:00:01Z"
         },
@@ -56,7 +56,7 @@
   },
   "sec:proof": {
       "@type": "sec:Ed25519Signature2018",
-      "dct:created":{ 
+      "dct:created":{
         "@type": "xsd:dateTime",
         "@value": "2022-11-18T13:00:01Z"
       },

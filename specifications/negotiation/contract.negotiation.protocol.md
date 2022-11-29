@@ -99,7 +99,7 @@ The _ContractRequestMessage_ is sent by a consumer to initiate a contract negoti
 
 The _ContractAgreementMessage_ is sent by a provider when it agrees to a contract. It contains the complete contract agreement with the provider's signature.
 
-A _ContractAgreementMessage_ must contain a `negotiationId`.
+A _ContractAgreementMessage_ must contain a `processId`.
 
 A _ContractAgreementMessage_ must contain a the ODRL Agreement as the credential subject and the provider signature as the proof.
 
@@ -124,7 +124,7 @@ A _ContractAgreementMessage_ must contain a hash value of the credential subject
 The _ContractAgreementVerificationMessage_ is sent by a consumer to verify the acceptance of a contract agreement. It contains the hash of the contract agreement and the provider's signature as the credential subject and the consumer signature as the proof.
 A provider responds with an error if the signature can't be validated or is incorrect.
 
-A _ContractAgreementVerificationMessage_ must contain a `negotiationId`.
+A _ContractAgreementVerificationMessage_ must contain a `processId`.
 
 ### 4. ContractNegotiationEventMessage
 

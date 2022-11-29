@@ -22,7 +22,7 @@ a [TransferErrorMessage](./message/transfer.error.message.json) with the followi
 
 | Field             | Type          | Description                                                         |
 |-------------------|---------------|---------------------------------------------------------------------|
-| transferProcessId | UUID          | The transfer process unique id.                                     |
+| processId         | UUID          | The transfer process unique id.                                     |
 | correlationId     | UUID          | The correlation id if sent by the provider; otherwise not included. |
 | code              | string        | An optional implementation-specific error code.                     |
 | reasons           | Array[object] | An optional array of implementation-specific error objects.         |

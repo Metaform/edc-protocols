@@ -22,7 +22,7 @@ a [ContractNegotiationErrorMessage](./message/contract.negotiation.error.message
 
 | Field         | Type          | Description                                                 |
 |---------------|---------------|-------------------------------------------------------------|
-| negotiationId | UUID          | The contract negotiation unique id.                         |
+| processId     | UUID          | The contract negotiation unique id.                         |
 | code          | string        | An optional implementation-specific error code.             |
 | reasons       | Array[object] | An optional array of implementation-specific error objects. |
 
@@ -132,7 +132,7 @@ Authorization: ...
     "odrl": "https://www.w3.org/TR/odrl-model"
   },
   "@type": "ids:ContractRequestMessage",
-  "ids:negotiationId": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
+  "ids:processId": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
   "offer": {
     "@type": "odrl:Offer",
     "uid": "...",
@@ -142,7 +142,7 @@ Authorization: ...
 }
 ```
 
-The consumer must include the `negotiationId`. The consumer must include either the `offer` or `offerId` property.
+The consumer must include the `processId`. The consumer must include either the `offer` or `offerId` property.
 
 If the message is successfully processed, the provider connector must return and HTTP 200 (OK) response. The response body is not specified and clients are not required to process
 it.
@@ -175,7 +175,7 @@ Authorization: ...
     "odrl": "https://www.w3.org/TR/odrl-model"
   },
   "@type": "ids:ContractAgreementVerificationMessage",
-  "negotiationId": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
+  "processId": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
   "ids:consumerSignature": {
     "timestamp": 121212,
     "hash": "....",
@@ -217,7 +217,7 @@ Authorization: ...
     "odrl": "https://www.w3.org/TR/odrl-model"
   },
   "@type": "ids:ContractOfferMessage",
-  "ids:negotiationId": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
+  "ids:processId": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
   "offer": {
     "@type": "odrl:Offer",
     "uid": "...",
@@ -248,7 +248,7 @@ Authorization: ...
     "odrl": "https://www.w3.org/TR/odrl-model"
   },
   "@type": "ids:ContractAgreementMessage",
-  "negotiationId": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
+  "processId": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
   "odrl:agreement": {
     "@type": "odrl:Agreement",
     "uid": "e8dc8655-44c2-46ef-b701-4cffdc2faa44",

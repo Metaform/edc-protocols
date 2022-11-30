@@ -5,10 +5,10 @@
     "dct:title" : "IDS Dataset Collection",
     "dct:description": [ {
         "@language": "en",
-        "@value": "This dataset includes all assets which identifiers comply to the pattern 'urn\\:guid\\:[A-F0-9]{8}\\-[A-F0-9]{4}\\-[A-F0-9]{4}\\-[A-F0-9]{4}\\-[A-F0-9]{12}'. A download via a S3 dataplane costs 5 EUR, while the HTTP_REST dataplane option costs only 2 EUR. The consumer must be a TRUST_PLUS certfified connector. No further distribution is allowed."
+        "@value": "This dataset includes all assets which identifiers comply to the pattern 'urn\\:guid\\:[A-F0-9]{8}\\-[A-F0-9]{4}\\-[A-F0-9]{4}\\-[A-F0-9]{4}\\-[A-F0-9]{12}'. A download via an S3 transfer costs 5 EUR, while the HTTP_REST transfer option costs only 2 EUR. The consumer must be a TRUST_PLUS certfified connector. No further distribution is allowed."
     }, {
         "@language": "de",
-        "@value": "Dieses Dataset bezeichnet alle Assets, deren Identifier dem Pattern 'urn:guid:[A-F0-9]{8}\\-[A-F0-9]{4}\\-[A-F0-9]{4}\\-[A-F0-9]{4}\\-[A-F0-9]{12}' folgen. Ein Abruf über eine S3 Dataplane kostet 5 EUR und über eine HTTP_REST Dataplane 2 EUR. Der Consumer muss ein TRUST_PLUS zertifizierter Connetor sein. Eine Weiterverbreitung ist nicht gestattet."
+        "@value": "Dieses Dataset bezeichnet alle Assets, deren Identifier dem Pattern 'urn:guid:[A-F0-9]{8}\\-[A-F0-9]{4}\\-[A-F0-9]{4}\\-[A-F0-9]{4}\\-[A-F0-9]{12}' folgen. Ein Transfer via S3 kostet etwa 5 Euro, wohingegen der Transfer via HTTP_RESt nur mit etwa 2 Euro zu Buche schlägt.. Der Consumer muss ein TRUST_PLUS zertifizierter Connetor sein. Eine Weiterverbreitung ist nicht gestattet."
     } ],
     "dcat:keyword": [
         "IDS",
@@ -25,7 +25,7 @@
             "REST"
         ],
         "ids:transportType": {
-            "@id": "idsc:HTTP_REST"
+            "@id": "ids:HTTP_REST"
         },
         "dcat:hasPolicy": {
             "@type": "odrl:Offer",
@@ -33,16 +33,16 @@
             "odrl:permission": [ {
                 "odrl:action": {"@id": "odrl:use"},
                 "odrl:constraint" : [ {
-                    "odrl:leftOperand": "idsc:SECURITY_PROFILE",
+                    "odrl:leftOperand": "ids:SECURITY_PROFILE",
                     "odrl:operand": "odrl:equals",
-                    "odrl:rightOperand": "idsc:TRUST_PLUS"
+                    "odrl:rightOperand": "ids:TRUST_PLUS"
                 } ],
                 "odrl:duty": [ {
                     "odrl:action": {"@id": "odrl:pay"},
                     "odrl:constraint": [ {
-                        "odrl:leftOperand": "idsc:DATA_PLANE",
+                        "odrl:leftOperand": "ids:TRANSPORT",
                         "odrl:operand": "odrl:equals",
-                        "odrl:rightOperand": "idsc:HTTP_REST"
+                        "odrl:rightOperand": "ids:HTTP_REST"
                     }, {
                         "odrl:leftOperand": "odrl:payAmount",
                         "odrl:operand": "odrl:equals",
@@ -53,7 +53,7 @@
                         "odrl:unit": {
                             "@id": "http://dbpedia.org/resource/Euro"
                         }
-                    } ] 
+                    } ]
                 } ]
             } ],
             "odrl:prohibition": [ {
@@ -61,13 +61,13 @@
             } ]
         },
         "dcat:accessService": [ {
-            "@type": [ "dcat:DataService", "idsc:NEGOTIATION_SERVICE" ],
+            "@type": [ "dcat:DataService", "ids:NEGOTIATION_SERVICE" ],
             "dcat:endpointURL": {
                 "@type": "xsd:anyURI",
                 "@value": "https://provider.com/connector/negotiation"
             }
         }, {
-            "@type": [ "dcat:DataService", "idsc:TRANSFER_SERVICE" ],
+            "@type": [ "dcat:DataService", "ids:TRANSFER_SERVICE" ],
             "dcat:endpointURL": {
                 "@type": "xsd:anyURI",
                 "@value": "https://provider.com/connector/transfer"
@@ -82,7 +82,7 @@
             "public"
         ],
         "ids:transportType": {
-            "@id": "idsc:S3"
+            "@id": "ids:S3"
         },
         "dcat:hasPolicy": {
             "@type": "odrl:Offer",
@@ -90,16 +90,16 @@
             "odrl:permission": [ {
                 "odrl:action": {"@id": "odrl:use"},
                 "odrl:constraint" : [ {
-                    "odrl:leftOperand": "idsc:SECURITY_PROFILE",
+                    "odrl:leftOperand": "ids:SECURITY_PROFILE",
                     "odrl:operand": "odrl:equals",
-                    "odrl:rightOperand": "idsc:TRUST_PLUS"
+                    "odrl:rightOperand": "ids:TRUST_PLUS"
                 } ],
                 "odrl:duty": [ {
                     "odrl:action": {"@id": "odrl:pay"},
                     "odrl:constraint": [ {
-                        "odrl:leftOperand": "idsc:DATA_PLANE",
+                        "odrl:leftOperand": "ids:TRANSPORT",
                         "odrl:operand": "odrl:equals",
-                        "odrl:rightOperand": "idsc:S3"
+                        "odrl:rightOperand": "ids:S3"
                     }, {
                         "odrl:leftOperand": "odrl:payAmount",
                         "odrl:operand": "odrl:equals",
@@ -118,13 +118,13 @@
             } ]
         },
         "dcat:accessService": [ {
-            "@type": [ "dcat:DataService", "idsc:NEGOTIATION_SERVICE" ],
+            "@type": [ "dcat:DataService", "ids:NEGOTIATION_SERVICE" ],
             "dcat:endpointURL": {
                 "@type": "xsd:anyURI",
                 "@value": "https://provider.com/connector/negotiation"
             }
         }, {
-            "@type": [ "dcat:DataService", "idsc:TRANSFER_SERVICE" ],
+            "@type": [ "dcat:DataService", "ids:TRANSFER_SERVICE" ],
             "dcat:endpointURL": {
                 "@type": "xsd:anyURI",
                 "@value": "https://provider.com/connector/transfer"

@@ -134,7 +134,7 @@ An `Asset Entry` is a [DCAT Dataset](https://www.w3.org/TR/vocab-dcat-3/#Class:D
 
 An `Offer` is an [ODRL Offer](https://www.w3.org/TR/odrl-model/#policy-offer) with the following attributes:
 
-- An ODRL `uid` that is a unique UUID. (ODRL PROFILE)
+- An ODRL `uid` is represented as an "@id" that is a unique UUID. (ODRL PROFILE)
 - The `Offer` must be unique to a dataset since the target of the offer is derived from its enclosing context.
 - The `Offer` must NOT include an explicit `target` attribute.
 

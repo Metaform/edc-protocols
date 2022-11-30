@@ -36,9 +36,7 @@ POST https://provider.com/catalog/request
 Authorization: ...
 
 {
-  "@context": {
-    "ids": "https://idsa.org/"
-  },
+  "@context":  "https://w3id.org/idsa/v5/context.json",
   "@type": "ids:CatalogRequest"
   "ids:filter": {}
 }
@@ -74,9 +72,7 @@ and the HTTP `Link` header. The `Link` header will contain URLs for navigating t
 ```
 Link: <https://provider.com/catalog?page=2&per_page=100>; rel="next"
 {
-  "@context": {
-    "dcat": "http://www.w3.org/ns/dcat/"
-  },
+  "@context":  "https://w3id.org/idsa/v5/context.json",
   "@type": "dcat:Catalog"
   ...
 }
@@ -123,7 +119,7 @@ POST https://provider.com/catalog/request
 Authorization: ...
 
 {
-  "@context:{},
+  "@context":  "https://w3id.org/idsa/v5/context.json",
   "@type": "ids:CatalogRequest"
   "@id: "..."
   "ids:callbackAddress": "https://example.com/endpoint"

@@ -53,13 +53,11 @@ the [TransferProcess](./message/transfer.process.json):
 
 ```
 {
-  "@context": {
-    "ids": "https://idsa.org/"
-  },
+  "@context":  "https://w3id.org/idsa/v5/context.json",
   "@id": "urn:uuid:71f8dfab-9337-4e9d-a4c7-524e04443f16",
   "@type": "ids:TransferProcess",
-  "correlationId": "urn:uuid:4a3ad65e-d78a-4200-a666-fc47aec32f2f",
-  "state": "idsc:REQUESTED"
+  "ids:correlationId": "urn:uuid:4a3ad65e-d78a-4200-a666-fc47aec32f2f",
+  "ids:state": "idsc:REQUESTED"
 } 
 ```
 
@@ -80,16 +78,13 @@ to `transfer-processes/request`:
  Authorization: ...
  
 {
-  "@context": {
-    "ids": "https://idsa.org/",
-    "dct": "dct:"
-  },
+  "@context":  "https://w3id.org/idsa/v5/context.json",
   "@id": "urn:uuid:4a3ad65e-d78a-4200-a666-fc47aec32f2f",
   "@type": "ids:TransferRequestMessage",
-  "agreementId": "urn:uuid:e8dc8655-44c2-46ef-b701-4cffdc2faa44",
+  "ids:agreementId": "urn:uuid:e8dc8655-44c2-46ef-b701-4cffdc2faa44",
   "dct:format": "ids:s3+push",
   "dataAddress": {},
-  "callbackAddress": "https://......"
+  "ids:callbackAddress": "https://......"
 }
  ```
 
@@ -108,13 +103,11 @@ the [TransferProcess](./message/transfer.process.json) message:
  Location: /transfer-processes/urn:uuid:71f8dfab-9337-4e9d-a4c7-524e04443f16
  
 {
-  "@context": {
-    "ids": "https://idsa.org/"
-  },
+  "@context":  "https://w3id.org/idsa/v5/context.json",
   "@id": "urn:uuid:71f8dfab-9337-4e9d-a4c7-524e04443f16",
   "@type": "ids:TransferProcess",
-  "correlationId": "urn:uuid:4a3ad65e-d78a-4200-a666-fc47aec32f2f",
-  "state": "idsc:REQUESTED"
+  "ids:correlationId": "urn:uuid:4a3ad65e-d78a-4200-a666-fc47aec32f2f",
+  "ids:state": "idsc:REQUESTED"
 }
 
  ```

@@ -52,9 +52,7 @@ the [ContractNegotiation](./message/contract.negotiation.json):
 
 ```
 {
-  "@context": {
-    "ids": "https://idsa.org/"
-  },
+  "@context":  "https://w3id.org/idsa/v5/context.json",
   "@type": "ids:ContractNegotiation"
   "@id": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
   "ids:state" :"idsc:CONSUMER_REQUESTED"
@@ -78,14 +76,12 @@ POST https://connector.provider.com/negotiations/request
 Authorization: ...
 
 {
-  "@context": {
-    "ids": "https://idsa.org/"
-  },
+  "@context":  "https://w3id.org/idsa/v5/context.json",
   "@type": "ids:ContractRequest"
   "@id": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
-  "dataSet": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88",
-  "offerId": "urn:uuid:2828282:3dd1add8-4d2d-569e-d634-8394a8836a88",
-  "callbackAddress": "https://......"
+  "ids:dataSet": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88",
+  "ids:offerId": "urn:uuid:2828282:3dd1add8-4d2d-569e-d634-8394a8836a88",
+  "ids:callbackAddress": "https://......"
 }
 ```
 
@@ -104,9 +100,7 @@ the [ContractNegotiation](./message/contract.negotiation.json) message:
 Location: /negotiations/urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3
 
 {
-  "@context": {
-    "ids": "https://idsa.org/"
-  },
+  "@context":  "https://w3id.org/idsa/v5/context.json",
   "@type": "ids:ContractNegotiation"
   "@id": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
   "ids:state" :"idsc:CONSUMER_REQUESTED"
@@ -127,18 +121,15 @@ POST https://connector.provider.com/negotiations/urn:uuid:dcbf434c-eacf-4582-9a0
 Authorization: ...
 
 {
-  "@context": {
-    "ids": "https://idsa.org/",
-    "odrl": "https://www.w3.org/TR/odrl-model"
-  },
+  "@context":  "https://w3id.org/idsa/v5/context.json",
   "@type": "ids:ContractRequestMessage",
   "ids:processId": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
-  "offer": {
+  "ids:offer": {
     "@type": "odrl:Offer",
     "uid": "...",
     "target": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88"
   },
-  "checksum": "..."
+  "ids:checksum": "..."
 }
 ```
 
@@ -170,12 +161,9 @@ POST https://connector.provider.com/negotiations/urn:uuid:a343fcbf-99fc-4ce8-8e9
 Authorization: ...
 
 {
-  "@context": {
-    "ids": "https://idsa.org/",
-    "odrl": "https://www.w3.org/TR/odrl-model"
-  },
+  "@context":  "https://w3id.org/idsa/v5/context.json",
   "@type": "ids:ContractAgreementVerificationMessage",
-  "processId": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
+  "ids:processId": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
   "ids:consumerSignature": {
     "timestamp": 121212,
     "hash": "....",
@@ -212,18 +200,15 @@ POST https://connector.consumer.com/callback/negotiations/urn:uuid:dcbf434c-eacf
 Authorization: ...
 
 {
-  "@context": {
-    "ids": "https://idsa.org/",
-    "odrl": "https://www.w3.org/TR/odrl-model"
-  },
+  "@context":  "https://w3id.org/idsa/v5/context.json",
   "@type": "ids:ContractOfferMessage",
   "ids:processId": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
-  "offer": {
+  "ids:offer": {
     "@type": "odrl:Offer",
     "uid": "...",
     "target": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88"
   },
-  "checksum": "..."
+  "ids:checksum": "..."
 }
 ```
 
@@ -243,13 +228,10 @@ POST https://connector.consumer.com/negotiations/urn:uuid:a343fcbf-99fc-4ce8-8e9
 Authorization: ...
 
 {
-  "@context": {
-    "ids": "https://idsa.org/",
-    "odrl": "https://www.w3.org/TR/odrl-model"
-  },
+  "@context":  "https://w3id.org/idsa/v5/context.json",
   "@type": "ids:ContractAgreementMessage",
-  "processId": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
-  "odrl:agreement": {
+  "ids:processId": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
+  "ids:agreement": {
     "@type": "odrl:Agreement",
     "uid": "e8dc8655-44c2-46ef-b701-4cffdc2faa44",
     "ids:providerSignature": {
@@ -258,7 +240,7 @@ Authorization: ...
       "signature": "..."
     }
   },
-  "checksum": "..."
+  "ids:checksum": "..."
 }
 ```
 

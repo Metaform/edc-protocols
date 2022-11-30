@@ -1,7 +1,5 @@
 {
-  "@context": {
-    "ids": "https://idsa.org/"
-  },
+  "@context":  "https://w3id.org/idsa/v5/context.json",
   "@id": "urn:uuid:6b9dd9cc-f60c-4253-b031-86755cf25720",
   "@type": "ids:TransferSuspensionMessage",
   "transferProcessId": "urn:uuid:24a62493-06eb-45e4-a41c-6de091b51da5",

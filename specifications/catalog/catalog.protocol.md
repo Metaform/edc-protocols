@@ -26,9 +26,7 @@ Future IDS specifications may define additional optional serialization formats.
 
 ```
 {
-  "@context: {
-     "ids": "https://idsa.org/"
-   },
+  "@context": "https://w3id.org/idsa/v5/context.json",
   "@type": "ids:CatalogRequest"
   "ids:filter": {}
 }
@@ -56,16 +54,28 @@ This section describes how the IDS Information Model maps to DCAT resources.
 
 An `Asset Entry` is a [DCAT Dataset](https://www.w3.org/TR/vocab-dcat-3/#Class:Dataset) with the following attributes:
 
-#### 3.1.1 dcat:haPolicy
+#### 3.1.1 odrl:hasPolicy
+
 
 An asset entry Dataset may have 0..N `hasPolicy` attributes that contain an ODRL `Offer` defining the usage control policy associated with the asset. Offers must NOT contain any
 target attributes. The target of an offer is the asset associated with the containing asset entry. If an entry is has no associated policies (hasPolicy does not contain any offer
 entries), the asset is does not have any usage control policy.
 
+
+> Note: As `odrl:hasPolicy rdfs:domain odrl:Asset` and `AssetEntry isA dcat:Dataset`
+
 ### 3.2 Distributions
 
 An asset may contain 0..N [DCAT Distributions](https://www.w3.org/TR/vocab-dcat-3/#Class:Distribution). Each distribution must have at least one `DataService` which specifies where
 the distribution is obtained. Specifically, a `DataService` specifies the endpoint for initiating a `ContractNegotiation` and `AssetTransfer`.
+
+A) 
+An Distribution must not have any `hasPolicy` attribute.
+
+B)
+An Distribution may have 0..N `hasPolicy` attributes that contain an ODRL `Offer` defining the usage control policy associated with the asset and this explicit Distribution.
+Offers must NOT contain any target attributes. The target of an offer is the asset associated with the containing asset entry. If an entry is has no associated policies (hasPolicy does not contain any offer
+entries), the asset is does not have any usage control policy.
 
 ### 3.3 DataService
 

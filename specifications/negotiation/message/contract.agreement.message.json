@@ -1,20 +1,22 @@
 {
-  "@context": {
-    "ids": "https://idsa.org/",
-    "odrl": "https://www.w3.org/TR/odrl-model"
-  },
+  "@context":  "https://w3id.org/idsa/v5/context.json",
   "@type": "ids:ContractAgreementMessage",
-  "negotiationId": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
-  "odrl:agreement": {
+  "ids:negotiationId": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
+  "cred:credentialSubject": {
     "@type": "odrl:Agreement",
-    "uid": "e8dc8655-44c2-46ef-b701-4cffdc2faa44",
-    "ids:providerSignature": {
-      "timestamp": 121212,
-      "hash": "...",
-      "signature": "..."
+    "@id": "e8dc8655-44c2-46ef-b701-4cffdc2faa44",
+    "odrl:permission": {
+      ...
     }
   },
-  "checksum": "..."
+  "sec:proof": {
+    "dct:created": { 
+      "@type": "xsd:dateTime",
+      "@value": "2022-11-18T12:00:01Z"
+    },
+    "sec:security": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..8YIj2tG6HoiDKw476_ElxcCFiCTr89jHX24Osr1zgklp0Sgfkgx-ipu6Li5og4wtLGMoa7__xJpcHWHzwWZoCQ"
+  },
+  "ids:hash": "123abc456efgh"
 }
 
 

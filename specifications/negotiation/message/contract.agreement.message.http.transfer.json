@@ -20,26 +20,23 @@
 
       "@type": "odrl:Agreement",
       "@id": "some-other-id",
-      "odrl:uid": "some-other-id",
       "odrl:target": { "@id": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88" },
       "odrl:permission": {
         "@id": "some-permission-id",
-        "odrl:uid": "some-permission-id",
         "odrl:action": { "@id": "odrl:use" },
         "odrl:constraint": {
-          "odrl:leftOperand": { "@id": "idsc:DATA_PLANE" },
+          "odrl:leftOperand": { "@id": "ids:TRANSPORT" },
           "odrl:operand": { "@id": "odrl:equals" },
-          "oderl:rightOperand": { "@id": "idsc:HTTP_DATA_PLANE" }
+          "oderl:rightOperand": { "@id": "ids:HTTP_REST" }
         }
       },
       "odrl:duty": {
         "@id": "some-permission-id",
-        "odrl:uid": "some-permission-id",
         "odrl:action": { "@id": "odrl:use" },
         "odrl:constraint": {
-          "odrl:leftOperand": { "@id": "idsc:DATA_PLANE" },
+          "odrl:leftOperand": { "@id": "ids:TRANSPORT" },
           "odrl:operand": { "@id": "odrl:equals" },
-          "oderl:rightOperand": { "@id": "idsc:HTTP_DATA_PLANE" }
+          "oderl:rightOperand": { "@id": "ids:HTTP_REST" }
         }
       }
     },
@@ -51,7 +48,7 @@
         },
         "sec:jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..8YIj2tG6HoiDKw476_ElxcCFiCTr89jHX24Osr1zgklp0Sgfkgx-ipu6Li5og4wtLGMoa7__xJpcHWHzwWZoCQ",
         "sec:proofPurpose": "assertionMethod",
-        "sec:verificationMethod": "idsc:DAPS_ATTRIBUTE_PUBLIC_KEY"
+        "sec:verificationMethod": "ids:DAPS_ATTRIBUTE_PUBLIC_KEY"
     }
   },
   "sec:proof": {
@@ -62,6 +59,6 @@
       },
       "sec:jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..8YIj2tG6HoiDKw476_ElxcCFiCTr89jHX24Osr1zgklp0Sgfkgx-ipu6Li5og4wtLGMoa7__xJpcHWHzwWZoCQ",
       "sec:proofPurpose": "assertionMethod",
-      "sec:verificationMethod": "idsc:DAPS_ATTRIBUTE_PUBLIC_KEY"
+      "sec:verificationMethod": "ids:DAPS_ATTRIBUTE_PUBLIC_KEY"
   }
 }

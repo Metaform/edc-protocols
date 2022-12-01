@@ -55,11 +55,11 @@ the [ContractNegotiation](./message/contract.negotiation.json):
   "@context":  "https://w3id.org/idsa/v5/context.json",
   "@type": "ids:ContractNegotiation"
   "@id": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
-  "ids:state" :"idsc:CONSUMER_REQUESTED"
+  "ids:state" :"CONSUMER_REQUESTED"
 }  
 ```
 
-Predefined states are: `idsc:CONSUMER_REQUESTED`, `idsc:PROVIDER_OFFERED`, `idsc:CONSUMER_AGREED`, `idsc:PROVIDER_AGREED`, `idsc:CONSUMER_VERIFIED`, `PROVIDER_FINALIZED`, and `idsc:TERMINATED`.
+Predefined states are: `CONSUMER_REQUESTED`, `PROVIDER_OFFERED`, `CONSUMER_AGREED`, `PROVIDER_AGREED`, `CONSUMER_VERIFIED`, `PROVIDER_FINALIZED`, and `TERMINATED`.
 
 If the negotiation does not exist or the client is not authorized, the provider connector must return an HTTP 404 (Not Found) response.
 
@@ -103,7 +103,7 @@ Location: /negotiations/urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3
   "@context":  "https://w3id.org/idsa/v5/context.json",
   "@type": "ids:ContractNegotiation"
   "@id": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
-  "ids:state" :"idsc:CONSUMER_REQUESTED"
+  "ids:state" :"CONSUMER_REQUESTED"
 }
 ```
 
@@ -126,7 +126,7 @@ Authorization: ...
   "ids:processId": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
   "ids:offer": {
     "@type": "odrl:Offer",
-    "uid": "...",
+    "@id": "...",
     "target": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88"
   },
   "ids:checksum": "..."
@@ -205,7 +205,7 @@ Authorization: ...
   "ids:processId": "urn:uuid:dcbf434c-eacf-4582-9a02-f8dd50120fd3",
   "ids:offer": {
     "@type": "odrl:Offer",
-    "uid": "...",
+    "@id": "...",
     "target": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88"
   },
   "ids:checksum": "..."
@@ -233,11 +233,7 @@ Authorization: ...
   "ids:processId": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
   "ids:agreement": {
     "@type": "odrl:Agreement",
-    "uid": "e8dc8655-44c2-46ef-b701-4cffdc2faa44",
-    "ids:providerSignature": {
-      "timestamp": 121212,
-      "hash": "...",
-      "signature": "..."
+    "@id": "e8dc8655-44c2-46ef-b701-4cffdc2faa44"
     }
   },
   "ids:checksum": "..."

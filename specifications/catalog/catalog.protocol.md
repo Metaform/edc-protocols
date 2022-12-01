@@ -56,7 +56,7 @@ An `Asset Entry` is a [DCAT Dataset](https://www.w3.org/TR/vocab-dcat-3/#Class:D
 
 #### 3.1.1 odrl:hasPolicy
 
-An asset entry Dataset may have 1..N `hasPolicy` attributes that contain an ODRL `Offer` defining the usage control policy associated with the asset. Offers must NOT contain any
+An asset entry Dataset must have 1..N `hasPolicy` attributes that contain an ODRL `Offer` defining the usage control policy associated with the asset. Offers must NOT contain any
 target attributes. The target of an offer is the asset associated with the containing asset entry.
 
 > Note: As `odrl:hasPolicy rdfs:domain odrl:Asset` and `AssetEntry isA dcat:Dataset`
@@ -66,13 +66,11 @@ target attributes. The target of an offer is the asset associated with the conta
 An asset may contain 0..N [DCAT Distributions](https://www.w3.org/TR/vocab-dcat-3/#Class:Distribution). Each distribution must have at least one `DataService` which specifies where
 the distribution is obtained. Specifically, a `DataService` specifies the endpoint for initiating a `ContractNegotiation` and `AssetTransfer`.
 
-A) 
-A Distribution must not have any `hasPolicy` attribute.
-
-B)
 A Distribution may have 0..N `hasPolicy` attributes that contain an ODRL `Offer` defining the usage control policy associated with the asset and this explicit Distribution.
-Offers must NOT contain any target attributes. The target of an offer is the asset associated with the containing asset entry. If an entry is has no associated policies (hasPolicy does not contain any offer
-entries), the asset is does not have any usage control policy.
+Offers must NOT contain any target attributes. The target of an offer is the asset entry that contains the distribution.
+
+Support for `hasPolicy` attributes on a Distribution is optional. Implementations may choose not to support this feature, in which case they should return an appropriate error
+message to clients.
 
 ### 3.3 DataService
 
@@ -95,7 +93,6 @@ The following table lists well-know IDS endpoint types:
 |---------------|----------------------|
 | ids:connector | A Connector endpoint |
 |               |                      |
-
 
 #### 3.3.2 dcat:servesDataset
 

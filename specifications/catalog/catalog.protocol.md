@@ -2,9 +2,9 @@
 
 ## 1 Introduction: Terms
 
-This document outlines the catalog subprotocol. The following terms are used:
+This document outlines the catalog protocol. The following terms are used:
 
-- A _**message type**_ defines the kind of a _message_ and thereby its structure.
+- A _**message type**_ defines the structure of a _message_.
 - A _**message**_  is an instantiation of a _message type_.
 - A _**catalog**_ is a [DCAT catalog](https://www.w3.org/TR/vocab-dcat-3/) offered by a _provider_
 - a _**catalog service**_ is a provider participant agent that advertises offered assets

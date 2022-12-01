@@ -56,11 +56,8 @@ An `Asset Entry` is a [DCAT Dataset](https://www.w3.org/TR/vocab-dcat-3/#Class:D
 
 #### 3.1.1 odrl:hasPolicy
 
-
-An asset entry Dataset may have 0..N `hasPolicy` attributes that contain an ODRL `Offer` defining the usage control policy associated with the asset. Offers must NOT contain any
-target attributes. The target of an offer is the asset associated with the containing asset entry. If an entry is has no associated policies (hasPolicy does not contain any offer
-entries), the asset is does not have any usage control policy.
-
+An asset entry Dataset may have 1..N `hasPolicy` attributes that contain an ODRL `Offer` defining the usage control policy associated with the asset. Offers must NOT contain any
+target attributes. The target of an offer is the asset associated with the containing asset entry.
 
 > Note: As `odrl:hasPolicy rdfs:domain odrl:Asset` and `AssetEntry isA dcat:Dataset`
 
@@ -70,10 +67,10 @@ An asset may contain 0..N [DCAT Distributions](https://www.w3.org/TR/vocab-dcat-
 the distribution is obtained. Specifically, a `DataService` specifies the endpoint for initiating a `ContractNegotiation` and `AssetTransfer`.
 
 A) 
-An Distribution must not have any `hasPolicy` attribute.
+A Distribution must not have any `hasPolicy` attribute.
 
 B)
-An Distribution may have 0..N `hasPolicy` attributes that contain an ODRL `Offer` defining the usage control policy associated with the asset and this explicit Distribution.
+A Distribution may have 0..N `hasPolicy` attributes that contain an ODRL `Offer` defining the usage control policy associated with the asset and this explicit Distribution.
 Offers must NOT contain any target attributes. The target of an offer is the asset associated with the containing asset entry. If an entry is has no associated policies (hasPolicy does not contain any offer
 entries), the asset is does not have any usage control policy.
 

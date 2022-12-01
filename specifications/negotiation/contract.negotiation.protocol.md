@@ -46,8 +46,10 @@ The CN state machine is transitioned upon receipt and acknowledgement of a messa
 ### Notes
 
 - Concrete wire formats are defined by the protocol binding, e.g. HTTPS.
-- The `OK` and `ERROR` response message types are mapped onto a protocol such as HTTPS. A description of an error might be provided in protocol-dependent forms, e.g. for an HTTPS binding in the request or response body.
-- All policy types (Offer, Agreement) must contain an unique identifier in the form of a URI. GUIDs can also be used in the form of URNs, for instance following the pattern <urn:uuid:{GUID}>.
+- The `OK` and `ERROR` response message types are mapped onto a protocol such as HTTPS. A description of an error might be provided in protocol-dependent forms, e.g. for an HTTPS
+  binding in the request or response body.
+- All policy types (Offer, Agreement) must contain an unique identifier in the form of a URI. GUIDs can also be used in the form of URNs, for instance following the
+  pattern <urn:uuid:{GUID}>.
 - An ODRL Agreement must have a target property containing the asset id.
 
 ### 1. ContractRequestMessage
@@ -78,10 +80,10 @@ The _ContractRequestMessage_ is sent by a consumer to initiate a contract negoti
 
 - The dataset id is not technically required but included to avoid an error where the offer is associated with a different data set.
 
-- `callbackAddress` is a URI indicating where messages to the consumer should be sent in asynchronous settings. If the address is not understood, the provider MUST return an UNRECOVERABLE error.
+- `callbackAddress` is a URI indicating where messages to the consumer should be sent in asynchronous settings. If the address is not understood, the provider MUST return an
+  UNRECOVERABLE error.
 
 > Comment sba (25.11.2022): What happens if the provider discovers that the callbackAddress is wrong/endpoint unavailable? Whom to send the error message to?
-
 
 ### 2. ContractAgreementMessage
 
@@ -101,11 +103,7 @@ The _ContractAgreementMessage_ is sent by a provider when it agrees to a contrac
 
 A _ContractAgreementMessage_ must contain a `processId`.
 
-A _ContractAgreementMessage_ must contain a the ODRL Agreement as the credential subject and the provider signature as the proof.
-
-A _ContractAgreementMessage_ must contain a hash value of the credential subject and the proof.
-
-> Comment sba (25.11.2022): What is the exact JSON object to hash? '[{agreement},{proof}]' or '{"cred:credentialSubject": {}, "sec:proof": {}}' or '{ContractAgreementMessage-without-hash}' or ...?
+A _ContractAgreementMessage_ must contain an ODRL Agreement.
 
 ### 3. ContractAgreementVerificationMessage
 
@@ -121,8 +119,8 @@ A _ContractAgreementMessage_ must contain a hash value of the credential subject
 
 #### Description
 
-The _ContractAgreementVerificationMessage_ is sent by a consumer to verify the acceptance of a contract agreement. It contains the hash of the contract agreement and the provider's signature as the credential subject and the consumer signature as the proof.
-A provider responds with an error if the signature can't be validated or is incorrect.
+The _ContractAgreementVerificationMessage_ is sent by a consumer to verify the acceptance of a contract agreement. A provider responds with an error if the signature can't be
+validated or is incorrect.
 
 A _ContractAgreementVerificationMessage_ must contain a `processId`.
 
@@ -141,8 +139,7 @@ A _ContractAgreementVerificationMessage_ must contain a `processId`.
 #### Description
 
 When the _ContractNegotiationEventMessage_ is sent by a provider with an `eventType` property set to `finalized`, a contract agreement has been finalized and the associated asset
-is accessible. The state machine is transitioned to the PROVIDER_FINALIZED state. Other event types may be defined in the future. 
-A consumer responds with an error if the signature
+is accessible. The state machine is transitioned to the PROVIDER_FINALIZED state. Other event types may be defined in the future. A consumer responds with an error if the signature
 can't be validated or is incorrect.
 
 > Comment sba (25.11.2022): Which signature?
@@ -160,7 +157,8 @@ provider to send a contract negotiation event after the negotiation state machin
 
 ### 5. ContractNegotiationTerminationMessage
 
-> Comment sba (25.11.2022): See ids:RejectionMessage https://github.com/International-Data-Spaces-Association/InformationModel/blob/d35161747a2c1d0e71777dbedf7b7c6132734200/taxonomies/Message.ttl#L48
+> Comment sba (25.11.2022): See ids:
+> RejectionMessage https://github.com/International-Data-Spaces-Association/InformationModel/blob/d35161747a2c1d0e71777dbedf7b7c6132734200/taxonomies/Message.ttl#L48
 
 **Sent by**: Consumer or Provider
 
@@ -172,7 +170,8 @@ provider to send a contract negotiation event after the negotiation state machin
 
 #### Description
 
-The _ContractNegotiationTermination_ is sent by a consumer or provider indicating it has cancelled the negotiation sequence. The message can be sent at any state of a negotiation without providing an explanation. Nevertheless, the sender may provide a description to help the receiver.
+The _ContractNegotiationTermination_ is sent by a consumer or provider indicating it has cancelled the negotiation sequence. The message can be sent at any state of a negotiation
+without providing an explanation. Nevertheless, the sender may provide a description to help the receiver.
 
 #### Notes
 
@@ -195,7 +194,8 @@ The _ContractNegotiationErrorMessage_ is a message returned by a consumer or pro
 
 #### Notes
 
-- A _ContractNegotiationErrorMessage_ is different to an error response. A _ContractNegotiationErrorMessage_ does not necessarily finish the negotiation but can continue afterwards.
+- A _ContractNegotiationErrorMessage_ is different to an error response. A _ContractNegotiationErrorMessage_ does not necessarily finish the negotiation but can continue
+  afterwards.
 
 ## Hash and Signature Calculations
 

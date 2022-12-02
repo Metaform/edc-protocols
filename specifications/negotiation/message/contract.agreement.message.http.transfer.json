@@ -1,64 +1,29 @@
 {
   "@context":  "https://w3id.org/idsa/v5/context.json",
   "@id": "some-id",
-  "@type": [ "cred:VerifiableCredential", "ids:ContractAgreementMessage"],
+  "@type": "ids:ContractAgreementMessage",
   "ids:processId": "urn:uuid:a343fcbf-99fc-4ce8-8e9b-148c97605aab",
-  "cred:issuer": { "@id": "http://provider.com/edc" },
-  "cred:issuanceDate": {
-    "@type": "xsd:dateTime",
-    "@value": "2022-11-18T13:00:00.000Z"
-  },
-  "cred:credentialSubject": {
-
-    "@type": [ "cred:VerifiableCredential", "ids:ConsumerSignedAgreement"],
-    "cred:issuer": { "@id": "http://consumer.com/edc" },
-    "cred:issuanceDate": {
-      "@type": "xsd:dateTime",
-      "@value": "2022-11-18T12:00:00.000Z"
-    },
-    "cred:credentialSubject": {
-
-      "@type": "odrl:Agreement",
-      "@id": "some-other-id",
-      "odrl:target": { "@id": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88" },
-      "odrl:permission": {
-        "@id": "some-permission-id",
-        "odrl:action": { "@id": "odrl:use" },
-        "odrl:constraint": {
-          "odrl:leftOperand": { "@id": "ids:TRANSPORT" },
-          "odrl:operand": { "@id": "odrl:equals" },
-          "oderl:rightOperand": { "@id": "ids:HTTP_REST" }
-        }
-      },
-      "odrl:duty": {
-        "@id": "some-permission-id",
-        "odrl:action": { "@id": "odrl:use" },
-        "odrl:constraint": {
-          "odrl:leftOperand": { "@id": "ids:TRANSPORT" },
-          "odrl:operand": { "@id": "odrl:equals" },
-          "oderl:rightOperand": { "@id": "ids:HTTP_REST" }
-        }
+  "ids:agreement": {
+    "@type": "odrl:Agreement",
+    "@id": "some-other-id",
+    "odrl:target": { "@id": "urn:uuid:3dd1add8-4d2d-569e-d634-8394a8836a88" },
+    "odrl:permission": {
+      "@id": "some-permission-id",
+      "odrl:action": { "@id": "odrl:use" },
+      "odrl:constraint": {
+        "odrl:leftOperand": { "@id": "ids:TRANSPORT" },
+        "odrl:operand": { "@id": "odrl:equals" },
+        "oderl:rightOperand": { "@id": "ids:HTTP_REST" }
       }
     },
-    "sec:proof": {
-        "@type": "sec:Ed25519Signature2018",
-        "dct:created": {
-          "@type": "xsd:dateTime",
-          "@value": "2022-11-18T12:00:01Z"
-        },
-        "sec:jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..8YIj2tG6HoiDKw476_ElxcCFiCTr89jHX24Osr1zgklp0Sgfkgx-ipu6Li5og4wtLGMoa7__xJpcHWHzwWZoCQ",
-        "sec:proofPurpose": "assertionMethod",
-        "sec:verificationMethod": "ids:DAPS_ATTRIBUTE_PUBLIC_KEY"
+    "odrl:duty": {
+      "@id": "some-permission-id",
+      "odrl:action": { "@id": "odrl:use" },
+      "odrl:constraint": {
+        "odrl:leftOperand": { "@id": "ids:TRANSPORT" },
+        "odrl:operand": { "@id": "odrl:equals" },
+        "oderl:rightOperand": { "@id": "ids:HTTP_REST" }
+      }
     }
-  },
-  "sec:proof": {
-      "@type": "sec:Ed25519Signature2018",
-      "dct:created":{
-        "@type": "xsd:dateTime",
-        "@value": "2022-11-18T13:00:01Z"
-      },
-      "sec:jws": "eyJhbGciOiJFZERTQSIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..8YIj2tG6HoiDKw476_ElxcCFiCTr89jHX24Osr1zgklp0Sgfkgx-ipu6Li5og4wtLGMoa7__xJpcHWHzwWZoCQ",
-      "sec:proofPurpose": "assertionMethod",
-      "sec:verificationMethod": "ids:DAPS_ATTRIBUTE_PUBLIC_KEY"
   }
 }
